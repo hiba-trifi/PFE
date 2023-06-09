@@ -1,0 +1,75 @@
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #FF916C;
+$purple-color: #4D5DB5;
+$white-color: #ffff;
+$input-color: #1031503d;
+
+.page {
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    .welcome {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+      h1{
+        color: $darker-color;
+        font-weight: bolder;
+      }
+      h4{
+        color: $purple-color;
+      }
+    } 
+}
+   
+      .login-form {
+        text-align: left;
+        width: 50%;
+
+  
+        .welcome-text {
+          font-size: 24px;
+          color: $purple-color;
+        }
+    
+        .form_input {
+          width: 100%;
+          padding: 12px;
+          background-color: $input-color;
+          border: none;
+          border-radius: 12px;
+        }
+  
+  
+        .button {
+          display: inline-block;
+          padding: 14px 32px;
+          background-color: $light-color;
+          color: $white-color;
+          border: none;
+          border-radius: 50px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: $darker-color;
+          }
+        }
+  
+        .form_info {
+          color: $purple-color;
+          margin: 0;
+        }
+  
+        .form_toogle {
+          color: $light-color;
+          text-decoration: underline;
+          margin: 0;
+        }
+      }
+    }
+  

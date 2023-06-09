@@ -1,0 +1,39 @@
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$grey-color: #bdbdbd;
+
+.navbar {
+  display: flex;
+  justify-content:end;
+  align-items: center;
+  background-color: $white-color;
+  padding: 20px;
+ 
+  @media screen and (min-width: 1000px) {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    button{
+        border: none;
+        background-color: transparent;
+
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-left: 30px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+}
+  }
+}

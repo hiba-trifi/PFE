@@ -1,0 +1,68 @@
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$input-color: #1031503d;
+
+.test{
+.container{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+  h1{
+    color: $darker-color;
+    font-weight: bolder;
+  }
+  h4{
+    color: $purple-color;
+  }
+} 
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  .question {
+    width: 50%;
+
+    h3{
+      color: $darker-color;
+      margin-bottom: 10px;
+      height: 130px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: $purple-color;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    
+
+    button {
+      padding: 10px 20px;
+      background-color: $light-color;
+      color: $white-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: $darker-color;
+      }
+    }
+  }
+}
+}

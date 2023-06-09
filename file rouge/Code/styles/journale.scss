@@ -1,0 +1,312 @@
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$text-color: #150c28;
+
+/* Global Styles */
+body {
+  background-color: whitesmoke;
+  a {
+    color: $dark-color;
+    text-decoration: none;
+  }
+
+  main {
+    @media screen and (min-width: 1000px) {
+      width: calc(100% - 720px);
+      margin-left: 320px;
+    }
+    margin-right: 400px;
+// menu
+.card {
+  position: fixed;
+  right: 20px;
+  top: 263px;
+  transform: translateY(-50%);
+  width: 370px;
+  margin-top: 160px;
+  height: 80vh;
+  background: linear-gradient(
+    179.66deg,
+    #144162 -67.96%,
+    #4d5db5 32.71%,
+    #144162 159.48%
+  );
+
+  .user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    color: $white-color;
+
+    img {
+      margin-bottom: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  
+  }
+    .card-progress {
+      h5 {
+        color: $white-color;
+        margin: 20px 0;
+      }
+      .progress-bar {
+        background-color: $light-color;
+      }
+    }
+
+  .card-text {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    h5 {
+      color: $white-color;
+      margin-right: 10px;
+    }
+    span {
+      color: $light-color;
+    }
+  }
+}
+    
+// creat button 
+
+  .fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 50px;
+    background-color: $purple-color;
+    border: none;
+    border-radius: 25px;
+    color: $white-color;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    i {
+      margin-right: 5px;
+      transition: transform 0.3s ease;
+    }
+  
+    &:hover {
+      background-color: $light-color;
+  
+      i {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  
+
+
+    // filtters
+    .filters-section {
+      display: flex;
+      justify-content: center;
+      margin-top: 5%;
+
+      button {
+        margin: 0 15px;
+        background-color: $purple-color;
+        color: $white-color;
+        border: none;
+        width: 100px;
+        padding: 10px;
+        border-radius: 50px;
+        &:focus-within,
+        &:hover {
+          background-color: $white-color;
+          color: $purple-color;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        margin-top: 10%;
+
+        button {
+          width: auto;
+          padding: 5px 10px;
+          border-radius: 30px;
+        }
+      }
+      @media screen and (max-width: 917px) {
+        margin-top: 10%;
+
+        button {
+          width: auto;
+          padding: 5px 10px;
+          border-radius: 30px;
+        }
+      }
+    }
+     // Publish
+
+.modal{
+  .user-info {
+    margin-bottom: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  .publish-section {
+    background-color: $white-color;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .publish-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid $dark-color;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
+  }
+
+  .publish-actions {
+    text-align: right;
+  }
+
+  .publish-button {
+    background-color: $dark-color;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+    // Journal
+    .journals {
+      padding: 20px;
+
+      .journal {
+        background-color: $white-color;
+        color: $text-color;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        .journal-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+
+          .username {
+            font-weight: bold;
+          }
+        }
+
+        .journal-content {
+          margin-bottom: 10px;
+        }
+
+        .journal-footer {
+          margin-top: 10px;
+          .buttons {
+            .likes {
+              button {
+                border: none;
+                background-color: transparent;
+                i {
+                  color: red;
+                }
+              }
+            }
+            .saves {
+              button {
+                border: none;
+                background-color: transparent;
+                i {
+                  color: $purple-color;
+                }
+              }
+            }
+          }
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        .journal-header {
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-bottom: 15px;
+        }
+
+        .journal-content {
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    // user
+    .user-details {
+      background-color: $white-color;
+      color: $text-color;
+      width: 20%;
+      height: 30%;
+      padding: 20px;
+
+      .user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          // margin-right: 10px;
+        }
+
+        .user-name {
+          font-weight: bold;
+        }
+      }
+
+      hr {
+        background-color: $purple-color;
+        height: 1px;
+        border: none;
+        margin: 20px 0;
+      }
+
+      div {
+        margin-bottom: 10px;
+
+        span {
+          margin-right: 10px;
+        }
+
+        .plan-num {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+body {
+  background-color: #f8f9fa;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180.77deg, #2c457e 4.67%, #213e6d 31.28%, #1d3a65 48.77%, #19375f 74.3%, #18375d 89.36%);
+  padding: 50px 100px;
+}
+@media screen and (min-width: 1000px) {
+  body header {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
+body header .decription {
+  width: 60%;
+  padding: 0 20px;
+}
+body header .decription h1 {
+  color: #ff9b79;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+body header .decription p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+}
+body header img {
+  width: 400px;
+}
+@media screen and (min-width: 1000px) {
+  body .plan {
+    width: calc(100% - 340px);
+    margin-left: 320px;
+  }
+}
+body .plan h2 {
+  margin: 20px 0;
+}
+body .plan .task-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+body .plan .task-card {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 10px);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+body .plan .task-card h3 {
+  color: #144162;
+}
+body .plan .task-card p {
+  color: #4d5db5;
+}
+body .plan .task-card button {
+  align-self: end;
+  width: 120px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff9b79;
+  color: white;
+}
+body .plan .task-card .undone {
+  background-color: #4d5db5;
+}
+@media screen and (max-width: 768px) {
+  body .plan .task-card {
+    width: 100%;
+  }
+}/*# sourceMappingURL=planTasks.css.map */

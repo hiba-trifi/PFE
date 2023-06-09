@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.hamburger-btn {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  background-color: #4d5db5;
+  display: none;
+  padding: 10px;
+}
+.hamburger-btn i {
+  color: #ff916c;
+}
+@media screen and (max-width: 1000px) {
+  .hamburger-btn {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+  }
+}
+
+.sidebar {
+  width: 300px;
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.sidebar .exit-btn {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  background-color: #ff916c;
+  padding: 10px;
+  display: none;
+}
+.sidebar .exit-btn i {
+  color: #4d5db5;
+}
+.sidebar .sections {
+  padding-left: 20px;
+}
+.sidebar .sections .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+.sidebar .sections .profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10%;
+}
+.sidebar .sections .profile .username {
+  color: white;
+  text-align: center;
+}
+.sidebar .sections hr {
+  background-color: #4d5db5;
+  height: 1px;
+  border: none;
+  margin: 20% 0;
+}
+.sidebar .sections .section {
+  margin-bottom: 15%;
+}
+.sidebar .sections .section h3 {
+  color: #bdbdbd;
+  text-decoration: underline;
+  margin: 7% 0;
+  padding: 0 10px;
+}
+.sidebar .sections .section .sidebar_links {
+  width: 100%;
+}
+.sidebar .sections .section .sidebar_links div {
+  padding: 3%;
+}
+.sidebar .sections .section .sidebar_links div:hover {
+  background-color: #ff916c;
+}
+.sidebar .sections .section .sidebar_links div a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .sections .disconnect-link {
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+}
+.sidebar .sections .disconnect-link hr {
+  width: 100%;
+}
+.sidebar .sections .disconnect-link div:hover {
+  background-color: #4d5db5;
+}
+.sidebar .sections .disconnect-link div a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10%;
+}
+.sidebar .sections .disconnect-link div a i {
+  margin-right: 10%;
+}
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    display: none;
+    transition: transform 0.3s ease;
+  }
+  .sidebar.open {
+    display: block;
+    transform: translateX(0);
+  }
+  .sidebar .exit-btn {
+    display: block;
+  }
+}/*# sourceMappingURL=sidebar.css.map */

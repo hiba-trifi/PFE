@@ -1,0 +1,113 @@
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$text-color: #150c28;
+
+/* Global Styles */
+body {
+  background-color: whitesmoke;
+  a {
+    color: $dark-color;
+    text-decoration: none;
+  }
+
+  main {
+    @media screen and (min-width: 1000px) {
+      width: calc(100% - 720px);
+      margin-left: 320px;
+    }
+    margin-right: 400px;
+    
+    // filtters
+    .filters-section {
+      display: flex;
+      justify-content: center;
+      margin-top: 5%;
+
+      button {
+        margin: 0 15px;
+        background-color: $purple-color;
+        color: $white-color;
+        border: none;
+        width: 100px;
+        padding: 10px;
+        border-radius: 50px;
+        &:focus-within,
+        &:hover {
+          background-color: $white-color;
+          color: $purple-color;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        margin-top: 10%;
+
+        button {
+          width: auto;
+          padding: 5px 10px;
+          border-radius: 30px;
+        }
+      }
+      @media screen and (max-width: 917px) {
+        margin-top: 10%;
+
+        button {
+          width: auto;
+          padding: 5px 10px;
+          border-radius: 30px;
+        }
+      }
+    }
+     // Publish
+
+.modal{
+  .user-info {
+    margin-bottom: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  .publish-section {
+    background-color: $white-color;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .publish-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid $dark-color;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
+  }
+
+  .publish-actions {
+    text-align: right;
+  }
+
+  .publish-button {
+    background-color: $dark-color;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+    // Journal
+    .articals {
+      padding: 20px;
+      
+    }
+  }
+}

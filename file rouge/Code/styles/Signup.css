@@ -1,0 +1,91 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page img {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.page .login-form {
+  text-align: left;
+  width: 40%;
+  margin: 0 10%;
+}
+.page .login-form .welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page .login-form .welcome h1 {
+  color: #103150;
+  font-weight: bolder;
+}
+.page .login-form .welcome h4 {
+  color: #4D5DB5;
+}
+.page .login-form .welcome-text {
+  color: #4D5DB5;
+}
+.page .login-form .form_input {
+  width: 95%;
+  padding: 12px;
+  background-color: rgba(16, 49, 80, 0.2392156863);
+  border: none;
+  border-radius: 12px;
+}
+.page .login-form .form_input-1 {
+  width: 90%;
+  padding: 12px;
+  background-color: rgba(16, 49, 80, 0.2392156863);
+  border: none;
+  border-radius: 12px;
+}
+.page .login-form .form_input-2 {
+  width: 90%;
+  padding: 12px;
+  background-color: rgba(16, 49, 80, 0.2392156863);
+  border: none;
+  border-radius: 12px;
+}
+.page .login-form .button {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #FF916C;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.page .login-form .button:hover {
+  background-color: #103150;
+}
+.page .login-form .form_info {
+  color: #4D5DB5;
+  margin: 0;
+}
+.page .login-form .form_toogle {
+  color: #FF916C;
+  text-decoration: underline;
+  margin: 0;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FF916C;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #103150;
+}/*# sourceMappingURL=Signup.css.map */

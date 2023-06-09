@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+}
+@media screen and (min-width: 1000px) {
+  .navbar {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
+.navbar .user-profile {
+  display: flex;
+  align-items: center;
+}
+.navbar .user-profile button {
+  border: none;
+  background-color: transparent;
+}
+.navbar .user-profile button img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 30px;
+}
+.navbar .user-profile button span {
+  font-weight: bold;
+}/*# sourceMappingURL=navbar.css.map */

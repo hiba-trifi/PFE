@@ -1,0 +1,296 @@
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #FF916C;
+$purple-color: #4D5DB5;
+$white-color: #ffff;
+
+// navbar 
+.navbar {
+  background-color: $white-color;
+
+  .navbar-logo {
+    img {
+      width: 50px;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    background-color: transparent;
+  }
+
+  .offcanvas {
+    background-color: $darker-color;
+
+    .offcanvas-header {
+      color: $light-color;
+    }
+
+    .offcanvas-title {
+      color: $light-color;
+    }
+
+    .navbar-nav {
+      justify-content: center;
+      flex-grow: 1;
+      padding: 0;
+    }
+
+    .nav-item {
+      text-align: center;
+
+      .nav-link {
+        color: $light-color;
+
+        &:hover,
+        &:focus {
+          color: $darker-color;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 8px 16px;
+      background-color: $purple-color;
+      color: $white-color;
+      border: none;
+      border-radius: 50px;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: $darker-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    background-color: $darker-color;
+
+    .navbar-logo {
+      img {
+        width: 40px;
+      }
+    }
+
+    .offcanvas-header {
+      color: $light-color;
+    }
+
+    .offcanvas-title {
+      color: $white-color;
+    }
+
+    .navbar-nav {
+      justify-content: center;
+      flex-grow: 1;
+      padding: 0;
+    }
+
+    .nav-item {
+      text-align: center;
+
+      .nav-link {
+        color: $white-color;
+
+        &:hover,
+        &:focus {
+          color: $light-color;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 8px 16px;
+      background-color: $light-color;
+      color: $white-color;
+      border: none;
+      border-radius: 50px;
+      margin-top: 10px;
+
+      &:hover {
+        background-color: $darker-color;
+      }
+    }
+  }
+}
+
+
+// Banner 
+.banner {
+  padding: 80px 0;
+  text-align: center;
+
+  .banner-image {
+    margin-bottom: 30px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .banner-content {
+    h2 {
+      font-size: 53px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      color: $light-color;
+    }
+
+    h3 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: $darker-color;
+    }
+
+    p {
+      font-size: 20px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      color: $dark-color;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: $light-color;
+      color: $white-color;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+      
+
+      &:hover {
+        background-color: $darker-color;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .banner {
+      padding: 60px 0;
+    }
+
+    .banner-content {
+      h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+
+// About
+.about {
+  background-color: $white-color;
+  padding: 40px 0;
+  color: $dark-color;
+
+  .container-fluid {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image {
+    text-align: center;
+    margin-bottom: 20px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .about-content {
+    max-width: 600px;
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: $purple-color;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: 20px 0;
+    }
+  }
+}
+
+// Features
+.features {
+  background-color: $darker-color;
+  color: $white-color;
+  padding: 40px 0;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .feature {
+    text-align: center;
+    margin-bottom: 30px;
+
+    i {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .feature {
+      margin-bottom: 20px;
+
+      i {
+        font-size: 30px;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}

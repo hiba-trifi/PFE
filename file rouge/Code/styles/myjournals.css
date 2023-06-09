@@ -1,0 +1,169 @@
+body {
+  background-color: whitesmoke;
+}
+body a {
+  color: #144162;
+  text-decoration: none;
+}
+
+main {
+  margin-right: 400px;
+}
+@media screen and (min-width: 1000px) {
+  main {
+    width: calc(100% - 720px);
+    margin-left: 320px;
+  }
+}
+main .card {
+  position: fixed;
+  right: 20px;
+  top: 263px;
+  transform: translateY(-50%);
+  width: 370px;
+  margin-top: 160px;
+  height: 80vh;
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+}
+main .card .user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  color: white;
+}
+main .card .user-profile img {
+  margin-bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+main .card .card-progress h5 {
+  color: white;
+  margin: 20px 0;
+}
+main .card .card-progress .progress-bar {
+  background-color: #ffa181;
+}
+main .card .card-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+main .card .card-text h5 {
+  color: white;
+  margin-right: 10px;
+}
+main .card .card-text span {
+  color: #ffa181;
+}
+main .fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 50px;
+  background-color: #4d5db5;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+main .fixed-button i {
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+main .fixed-button:hover {
+  background-color: #ffa181;
+}
+main .fixed-button:hover i {
+  transform: rotate(45deg);
+}
+main .modal .user-info {
+  margin-bottom: 10px;
+}
+main .modal .user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+main .modal .publish-section {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+}
+main .modal .publish-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #144162;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: 10px;
+}
+main .modal .publish-actions {
+  text-align: right;
+}
+main .modal .publish-button {
+  background-color: #144162;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main .journals {
+  padding: 20px;
+}
+main .journals .journal {
+  background-color: white;
+  color: #150c28;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+main .journals .journal .journal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+main .journals .journal .journal-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+main .journals .journal .journal-header .username {
+  font-weight: bold;
+}
+main .journals .journal .journal-content {
+  margin-bottom: 10px;
+}
+main .journals .journal .journal-footer {
+  margin-top: 10px;
+}
+main .journals .journal .journal-footer button {
+  color: white;
+  border: none;
+  background-color: transparent;
+}
+main .journals .journal .journal-footer button i {
+  color: #150c28;
+}
+@media screen and (max-width: 1000px) {
+  main .journal-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  main .journal-content {
+    margin-bottom: 15px;
+  }
+}/*# sourceMappingURL=myjournals.css.map */

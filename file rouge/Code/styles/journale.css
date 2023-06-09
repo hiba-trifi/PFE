@@ -1,0 +1,249 @@
+/* Global Styles */
+body {
+  background-color: whitesmoke;
+}
+body a {
+  color: #144162;
+  text-decoration: none;
+}
+body main {
+  margin-right: 400px;
+}
+@media screen and (min-width: 1000px) {
+  body main {
+    width: calc(100% - 720px);
+    margin-left: 320px;
+  }
+}
+body main .card {
+  position: fixed;
+  right: 20px;
+  top: 263px;
+  transform: translateY(-50%);
+  width: 370px;
+  margin-top: 160px;
+  height: 80vh;
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+}
+body main .card .user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  color: white;
+}
+body main .card .user-profile img {
+  margin-bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+body main .card .card-progress h5 {
+  color: white;
+  margin: 20px 0;
+}
+body main .card .card-progress .progress-bar {
+  background-color: #ff916c;
+}
+body main .card .card-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+body main .card .card-text h5 {
+  color: white;
+  margin-right: 10px;
+}
+body main .card .card-text span {
+  color: #ff916c;
+}
+body main .fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 50px;
+  background-color: #4d5db5;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+body main .fixed-button i {
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+body main .fixed-button:hover {
+  background-color: #ff916c;
+}
+body main .fixed-button:hover i {
+  transform: rotate(45deg);
+}
+body main .filters-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+body main .filters-section button {
+  margin: 0 15px;
+  background-color: #4d5db5;
+  color: white;
+  border: none;
+  width: 100px;
+  padding: 10px;
+  border-radius: 50px;
+}
+body main .filters-section button:focus-within, body main .filters-section button:hover {
+  background-color: white;
+  color: #4d5db5;
+}
+@media screen and (max-width: 1000px) {
+  body main .filters-section {
+    margin-top: 10%;
+  }
+  body main .filters-section button {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 30px;
+  }
+}
+@media screen and (max-width: 917px) {
+  body main .filters-section {
+    margin-top: 10%;
+  }
+  body main .filters-section button {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 30px;
+  }
+}
+body main .modal .user-info {
+  margin-bottom: 10px;
+}
+body main .modal .user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+body main .modal .publish-section {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+}
+body main .modal .publish-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #144162;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: 10px;
+}
+body main .modal .publish-actions {
+  text-align: right;
+}
+body main .modal .publish-button {
+  background-color: #144162;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body main .journals {
+  padding: 20px;
+}
+body main .journals .journal {
+  background-color: white;
+  color: #150c28;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+body main .journals .journal .journal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+body main .journals .journal .journal-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+body main .journals .journal .journal-header .username {
+  font-weight: bold;
+}
+body main .journals .journal .journal-content {
+  margin-bottom: 10px;
+}
+body main .journals .journal .journal-footer {
+  margin-top: 10px;
+}
+body main .journals .journal .journal-footer .buttons .likes button {
+  border: none;
+  background-color: transparent;
+}
+body main .journals .journal .journal-footer .buttons .likes button i {
+  color: red;
+}
+body main .journals .journal .journal-footer .buttons .saves button {
+  border: none;
+  background-color: transparent;
+}
+body main .journals .journal .journal-footer .buttons .saves button i {
+  color: #4d5db5;
+}
+@media screen and (max-width: 1000px) {
+  body main .journals .journal-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  body main .journals .journal-content {
+    margin-bottom: 15px;
+  }
+}
+body main .user-details {
+  background-color: white;
+  color: #150c28;
+  width: 20%;
+  height: 30%;
+  padding: 20px;
+}
+body main .user-details .user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+body main .user-details .user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+body main .user-details .user .user-name {
+  font-weight: bold;
+}
+body main .user-details hr {
+  background-color: #4d5db5;
+  height: 1px;
+  border: none;
+  margin: 20px 0;
+}
+body main .user-details div {
+  margin-bottom: 10px;
+}
+body main .user-details div span {
+  margin-right: 10px;
+}
+body main .user-details div .plan-num {
+  font-weight: bold;
+}/*# sourceMappingURL=journale.css.map */

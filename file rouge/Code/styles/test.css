@@ -1,0 +1,51 @@
+.test .container {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.test .container .welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.test .container .welcome h1 {
+  color: #103150;
+  font-weight: bolder;
+}
+.test .container .welcome h4 {
+  color: #4d5db5;
+}
+.test form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.test form .question {
+  width: 50%;
+}
+.test form .question h3 {
+  color: #103150;
+  margin-bottom: 10px;
+  height: 130px;
+}
+.test form .question label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4d5db5;
+}
+.test form .question input[type=radio] {
+  margin-right: 5px;
+}
+.test form .question button {
+  padding: 10px 20px;
+  background-color: #ff916c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.test form .question button:hover {
+  background-color: #103150;
+}/*# sourceMappingURL=test.css.map */

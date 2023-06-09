@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$grey-color: #bdbdbd;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.hamburger-btn {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  background-color: $purple-color;
+  display: none;
+  padding: 10px;
+  i {
+    color: $light-color;
+  }
+  @media screen and (max-width: 1000px) {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+  }
+}
+
+.sidebar {
+  width: 300px;
+  background: linear-gradient(
+    179.66deg,
+    #144162 -67.96%,
+    #4d5db5 32.71%,
+    #144162 159.48%
+  );
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  .exit-btn {
+    border: none;
+    border-radius: 0px 0px 10px 0px;
+    background-color: $light-color;
+    padding: 10px;
+    display: none;
+    i {
+      color: $purple-color;
+    }
+  }
+  .sections {
+    padding-left: 20px;
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 5%;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-bottom: 10%;
+      }
+
+      .username {
+        color: $white-color;
+        text-align: center;
+      }
+    }
+
+    hr {
+      background-color: $purple-color;
+      height: 1px;
+      border: none;
+      margin: 20% 0;
+    }
+
+    .section {
+      margin-bottom: 15%;
+      h3 {
+        color: $grey-color;
+        text-decoration: underline;
+        margin: 7% 0;
+        padding: 0 10px;
+      }
+      .sidebar_links {
+        width: 100%;
+        div {
+          padding: 3%;
+
+          &:hover {
+            background-color: $light-color;
+          }
+          a {
+            color: $white-color;
+            text-decoration: none;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .disconnect-link {
+      margin-top: auto;
+      position: absolute;
+      bottom: 0;
+
+      hr {
+        width: 100%;
+      }
+
+      div {
+        &:hover {
+          background-color: $purple-color;
+        }
+        a {
+          color: $white-color;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          padding: 10%;
+
+          i {
+            margin-right: 10%;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+    transition: transform 0.3s ease;
+
+    &.open {
+      display: block;
+      transform: translateX(0);
+    }
+    .exit-btn {
+      display: block;
+    }
+  }
+}

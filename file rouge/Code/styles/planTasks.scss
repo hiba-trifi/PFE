@@ -1,0 +1,100 @@
+$dark-color: #144162;
+$light-color: #ff9b79;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$grey-color: #bdbdbd;
+
+body {
+  background-color: #f8f9fa;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(
+      180.77deg,
+      #2c457e 4.67%,
+      #213e6d 31.28%,
+      #1d3a65 48.77%,
+      #19375f 74.3%,
+      #18375d 89.36%
+    );
+    padding: 50px 100px;
+    @media screen and (min-width: 1000px) {
+      width: calc(100% - 300px);
+      margin-left: 300px;
+    }
+
+    .decription {
+      width: 60%;
+      padding: 0 20px;
+
+      h1 {
+        color: $light-color;
+        font-size: 4rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $white-color;
+      }
+    }
+
+    img {
+        width: 400px;
+    }
+  }
+
+  .plan {
+    @media screen and (min-width: 1000px) {
+      width: calc(100% - 340px);
+      margin-left: 320px;
+    }
+    h2{
+      margin: 20px 0;
+    }
+    .task-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .task-card {
+      display: flex;
+      flex-direction: column;
+      width: calc(50% - 10px);
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      h3 {
+        color: $dark-color;
+      }
+      p {
+        color: $purple-color;
+      }
+      button {
+        align-self: end;
+        width: 120px;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        background-color: $light-color;
+        color: $white-color;
+      }
+      .undone {
+        background-color: $purple-color;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .task-card {
+        width: 100%;
+      }
+    }
+  }
+}
