@@ -1,0 +1,197 @@
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$text-color: #150c28;
+
+/* Global Styles */
+body {
+  background-color: whitesmoke;
+  a {
+    color: $dark-color;
+    text-decoration: none;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #103150 33.2%, #144162 92.38%);
+    padding: 50px 100px;
+    @media screen and (min-width: 1000px) {
+      width: calc(100% - 300px);
+      margin-left: 300px;
+    }
+
+    .decription {
+      width: 60%;
+      padding: 0 20px;
+
+      h1 {
+        color: $white-color;
+        font-size: 4rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    img {
+      width: 300px;
+    }
+  }
+  main {
+    @media screen and (min-width: 1000px) {
+      width: calc(100% - 340px);
+      margin-left: 320px;
+    }
+
+    // admin profile
+    .profile {
+      .card{
+        flex-direction: row;
+  
+      .edit-section{
+        .delete {
+          text-align: end;
+         a {
+          text-decoration: underline;
+          color: red;
+        }
+      }
+       } 
+       @media screen and (max-width: 500px) {
+        flex-direction: column;
+      }
+      }
+      .edit-btn{
+        background-color: $purple-color;
+        border-radius: 10px;
+        color: $white-color;
+        padding: 10px;
+        &:hover{
+          background-color: $light-color;
+
+        }
+      }
+      .save-btn{
+        background-color: $light-color;
+        border-radius: 10px;
+        color: $white-color;
+        padding: 10px;
+        &:hover{
+          background-color: $purple-color;
+
+        }
+      }
+  
+      
+    }
+
+   .form-card{
+    background-color: $white-color;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+    .form-outline {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .form_input {
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: whitesmoke;
+        margin-top: 5px;
+      }
+
+      label {
+        font-size: 16px;
+        font-weight: bold;
+        color: $purple-color;
+        margin-top: 10px;
+      }
+    }
+
+    
+    // add admin button
+    button {
+      display: flex;
+      align-self:center;
+      background-color: $purple-color;
+      border: none;
+      border-radius: 25px;
+      color: $white-color;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      i {
+        margin-right: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        background-color: $light-color;
+
+        i {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+   }
+
+
+    //state cards
+    .state-cards {
+      display: flex;
+      margin: 10px 0;
+      justify-content:start;
+
+
+      .state-card {
+        text-align: center;
+        width: 300px;
+        padding: 15px;
+        margin: 0 20px;
+        background-color: $darker-color;
+        border-radius: 10px;
+        color: $white-color;
+
+
+        i {
+          font-size: 30px;
+          margin-bottom: 7px;
+          color: $light-color;
+        }
+
+        h3 {
+          font-size: 20px;
+          margin-bottom: 7px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+
+    // modal form
+   
+
+    // table
+    .table-card {
+      background-color: $white-color;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

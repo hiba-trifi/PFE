@@ -1,3 +1,37 @@
+.prev-page-button {
+  text-decoration: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #103150;
+  color: white;
+  box-shadow: 0 2px 4px rgba(16, 49, 80, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.prev-page-button:hover {
+  background-color: #FF916C;
+}
+.prev-page-button i {
+  font-size: 20px;
+}
+
+.page img {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+@media screen and (max-width: 1000px) {
+  .page img {
+    display: none;
+  }
+}
 .page .container {
   display: flex;
   flex-direction: column;
@@ -52,4 +86,22 @@
   color: #FF916C;
   text-decoration: underline;
   margin: 0;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FF916C;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
 }/*# sourceMappingURL=Login.css.map */

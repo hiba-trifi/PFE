@@ -45,9 +45,13 @@ if ($_POST['submit']) {
 </head>
 
 <body>
-  <div class="test d-flex ">
-    <img class="" src="../assets/Log In.svg" alt="">
 
+<a href="../index.php" class="prev-page-button">
+  <i class="fas fa-arrow-left"></i>
+</a>
+
+  <div class="test d-flex ">
+  <img src="../assets/Log In.svg" alt="Your Image">
     <div class="container">
       <div class="welcome mb-5">
         <h1 class="welcome-text">Start the test</h1>
@@ -60,7 +64,7 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q1" value="6" <?php if (isset($_POST['q1']) == '6') echo 'checked'; ?>> Sometimes</label><br>
           <label><input type="radio" name="q1" value="2" <?php if (isset($_POST['q1']) == '2') echo 'checked'; ?>> No</label><br>
 
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q2" style="display: none;">
@@ -68,8 +72,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q2" value="10" <?php if (isset($_POST['q2']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q2" value="6" <?php if (isset($_POST['q2']) == '6') echo 'checked'; ?>> Sometimes</label><br>
           <label><input type="radio" name="q2" value="2" <?php if (isset($_POST['q2']) == '2') echo 'checked'; ?>> No </label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q3" style="display: none;">
@@ -77,8 +81,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q3" value="10" <?php if (isset($_POST['q3']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q3" value="6" <?php if (isset($_POST['q3']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q3" value="2" <?php if (isset($_POST['q3']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q4" style="display: none;">
@@ -86,8 +90,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q4" value="10" <?php if (isset($_POST['q4']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q4" value="6" <?php if (isset($_POST['q4']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q4" value="2" <?php if (isset($_POST['q4']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q5" style="display: none;">
@@ -95,8 +99,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q5" value="10" <?php if (isset($_POST['q5']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q5" value="6" <?php if (isset($_POST['q5']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q5" value="2" <?php if (isset($_POST['q5']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q6" style="display: none;">
@@ -104,8 +108,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q6" value="10" <?php if (isset($_POST['q6']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q6" value="6" <?php if (isset($_POST['q6']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q6" value="2" <?php if (isset($_POST['q6']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q7" style="display: none;">
@@ -113,16 +117,16 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q7" value="10" <?php if (isset($_POST['q7']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q7" value="6" <?php if (isset($_POST['q7']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q7" value="2" <?php if (isset($_POST['q7']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
         <div class="question" id="q8" style="display: none;">
           <h3>Question 8: Have you had any thoughts of hurting yourself or ending your life?</h3>
           <label><input type="radio" name="q8" value="10" <?php if (isset($_POST['q8']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q8" value="6" <?php if (isset($_POST['q8']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q8" value="2" <?php if (isset($_POST['q8']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
         <div class="question" id="q9" style="display: none;">
@@ -130,8 +134,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q9" value="10" <?php if (isset($_POST['q9']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q9" value="6" <?php if (isset($_POST['q9']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q9" value="2" <?php if (isset($_POST['q9']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <button type="button" onclick="nextQuestion()">Next</button>
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <button class="next" type="button" onclick="nextQuestion()">Next</button>
         </div>
 
 
@@ -140,8 +144,8 @@ if ($_POST['submit']) {
           <label><input type="radio" name="q10" value="10" <?php if (isset($_POST['q10']) == '10') echo 'checked'; ?>> Yes</label><br>
           <label><input type="radio" name="q10" value="6" <?php if (isset($_POST['q10']) == '6') echo 'checked'; ?>>Sometimes </label><br>
           <label><input type="radio" name="q10" value="2" <?php if (isset($_POST['q10']) == '2') echo 'checked'; ?>>No</label><br>
-          <button type="button" onclick="prevQuestion()">Back</button>
-          <input type="submit" name="submit">
+          <button class="back" type="button" onclick="prevQuestion()">Back</button>
+          <input class="submit"  type="submit" name="submit">
         </div>
 
         <br>

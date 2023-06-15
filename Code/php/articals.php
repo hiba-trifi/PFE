@@ -26,6 +26,17 @@ session_start();
     include './sidebar.php'
     ?>
 
+<header>
+        <div class="decription">
+            <h1>Therapist Finder</h1>
+            <p>The therapist finder feature on our website allows you to search for therapists in your area. Simply enter your desired location,
+                and you'll find a list of therapists practicing in that specific region. This convenient tool makes it easy to find the right
+                therapist near you, ensuring that you can access the support you need within your local community.</p>
+        </div>
+        <img src="../assets/search.svg" alt="">
+
+    </header>
+
     <main class="">
 
 
@@ -36,31 +47,35 @@ session_start();
             <button name="filter" id="popularBtn">Popular</button>
         </section>
 
-       <section class="articals">
-       <?php
-        $apiKey = "5c9d524040dc4cb987a6600da8789277";
-        $apiUrl = "https://newsapi.org/v2/everything?q=therapy&apiKey=" . $apiKey;
+        <section class="articals">
+            <?php
+      $apiUrl = "https://newsapi.org/v2/everything?q=health&apiKey=5c9d524040dc4cb987a6600da8789277";
+      
+      $response = file_get_contents($apiUrl);
+      $data = json_decode($response, true);
+      
+      if ($data && $data['status'] == "ok") {
+          $articles = $data['articles'];
+      
+          foreach ($articles as $article) {
+              echo '<div class="article-card">';
+              echo '<img src="' . $article['urlToImage'] . '" alt="Article Image">';
+              echo '<h3>' . $article['title'] . '</h3>';
+              echo '<p>' . $article['description'] . '</p>';
+              echo '<a href="' . $article['url'] . '">Read more</a>';
+              echo '</div>';
+          }
+      } else {
+          echo "Failed to fetch data from the API.";
+      }
+            ?>
+         
+       
+            
 
-        $response = file_get_contents($apiUrl);
-        $data = json_decode($response, true);
+            
 
-        if ($data && $data['status'] == "ok") {
-            $articles = $data['articles'];
-
-            foreach ($articles as $article) {
-                echo '<div class="artical">';
-                echo '<img src="' . $article['urlToImage'] . '">';
-                echo '<h3>' . $article['title'] . '</h3>';
-                echo '<p>' . $article['description'] . '</p>';
-                echo '<p>' . $article['content'] . '</p>';
-                echo '<a href="' . $article['url'] . '">Read more</a>';
-                echo '</div>';
-            }
-        } else {
-            echo "Failed to fetch data from the API.";
-        }
-        ?>
-       </section>
+        </section>
 
     </main>
 

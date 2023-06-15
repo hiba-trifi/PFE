@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+$darker-color: #103150;
+$dark-color: #144162;
+$light-color: #ff916c;
+$purple-color: #4d5db5;
+$white-color: #ffff;
+$grey-color: #bdbdbd;
+
+body {
+  font-family: "Poppins", sans-serif;
+  a {
+    color: $dark-color;
+    text-decoration: none;
+  }
+}
+.hamburger-btn {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  background-color: $white-color;
+  display: none;
+  padding: 10px;
+  i {
+    color: $darker-color;
+  }
+  @media screen and (max-width: 1000px) {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+  }
+}
+
+.sidebar {
+  width: 300px;
+  background: linear-gradient(180deg, #103150 33.2%, #144162 92.38%);
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  .exit-btn {
+    border: none;
+    border-radius: 0px 0px 10px 0px;
+    background-color: $white-color;
+    padding: 10px;
+    display: none;
+    i {
+      color: $darker-color;
+    }
+  }
+  .sections {
+    padding-left: 20px;
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2%;
+
+      img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .username {
+        color: $white-color;
+        text-align: center;
+      }
+    }
+
+    hr {
+      background-color: $purple-color;
+      height: 1px;
+      border: none;
+      margin: 20% 0;
+    }
+
+    .section {
+      margin-bottom: 15%;
+      h3 {
+        color: $grey-color;
+        text-decoration: underline;
+        margin: 7% 0;
+        padding: 0 10px;
+      }
+      .sidebar_links {
+        width: 100%;
+        div {
+          padding: 3%;
+
+          &:hover {
+            background-color: $light-color;
+          }
+          a {
+            color: $white-color;
+            text-decoration: none;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .disconnect-link {
+      margin-top: auto;
+      position: absolute;
+      bottom: 20px;
+
+      hr {
+        width: 100%;
+      }
+      .btn-group{
+        .dropdown-toggle{
+          background-color: transparent;
+          border: none;
+          color: $white-color;
+        }
+
+      }
+
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+    transition: transform 1s ease;
+    overflow: scroll;
+    .profile{
+      margin-bottom: 1%;
+
+    }
+
+    &.open {
+      display: block;
+      transition: transform 1s ease;
+      transform: translateX(0);
+    }
+    .exit-btn {
+      display: block;
+    }
+  }
+}

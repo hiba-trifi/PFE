@@ -6,86 +6,41 @@ body a {
   color: #144162;
   text-decoration: none;
 }
-body main {
-  margin-right: 400px;
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+  padding: 50px 100px;
+}
+@media screen and (min-width: 1000px) {
+  body header {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
+body header .decription {
+  width: 60%;
+  padding: 0 20px;
+}
+body header .decription h1 {
+  color: #ff916c;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+body header .decription p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+}
+body header img {
+  width: 400px;
 }
 @media screen and (min-width: 1000px) {
   body main {
     width: calc(100% - 720px);
     margin-left: 320px;
   }
-}
-body main .filters-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 5%;
-}
-body main .filters-section button {
-  margin: 0 15px;
-  background-color: #4d5db5;
-  color: white;
-  border: none;
-  width: 100px;
-  padding: 10px;
-  border-radius: 50px;
-}
-body main .filters-section button:focus-within, body main .filters-section button:hover {
-  background-color: white;
-  color: #4d5db5;
-}
-@media screen and (max-width: 1000px) {
-  body main .filters-section {
-    margin-top: 10%;
-  }
-  body main .filters-section button {
-    width: auto;
-    padding: 5px 10px;
-    border-radius: 30px;
-  }
-}
-@media screen and (max-width: 917px) {
-  body main .filters-section {
-    margin-top: 10%;
-  }
-  body main .filters-section button {
-    width: auto;
-    padding: 5px 10px;
-    border-radius: 30px;
-  }
-}
-body main .modal .user-info {
-  margin-bottom: 10px;
-}
-body main .modal .user-info img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-body main .modal .publish-section {
-  background-color: white;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 20px;
-}
-body main .modal .publish-textarea {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border: 1px solid #144162;
-  border-radius: 5px;
-  resize: none;
-  margin-bottom: 10px;
-}
-body main .modal .publish-actions {
-  text-align: right;
-}
-body main .modal .publish-button {
-  background-color: #144162;
-  color: #fff;
-  padding: 8px 20px;
-  border-radius: 5px;
-  cursor: pointer;
 }
 body main .articals {
   padding: 20px;

@@ -5,7 +5,7 @@ body header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180.77deg, #2c457e 4.67%, #213e6d 31.28%, #1d3a65 48.77%, #19375f 74.3%, #18375d 89.36%);
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
   padding: 50px 100px;
 }
 @media screen and (min-width: 1000px) {

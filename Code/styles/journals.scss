@@ -150,8 +150,8 @@ body {
         }
       }
     }
-     // Publish
-
+    
+// Publish
 .modal{
   .user-info {
     margin-bottom: 10px;
@@ -228,6 +228,16 @@ body {
 
         .journal-footer {
           margin-top: 10px;
+          .btn-group{
+            button {
+              color: $white-color;
+              border: none;
+              background-color: transparent;
+              i {
+                color: $text-color;
+              }
+            }
+          }
           .buttons {
             .likes {
               button {

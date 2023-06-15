@@ -5,23 +5,61 @@ $purple-color: #4D5DB5;
 $white-color: #ffff;
 $input-color: #1031503d;
 
-.page {
-    img{
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
+// previous button
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      
+.prev-page-button {
+  text-decoration: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $darker-color;
+  color: $white-color;
+  box-shadow: 0 2px 4px rgba($darker-color, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $light-color;
+  }
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.page {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 1000px)  {
+    justify-content: center;
+  }
+
+  img {
+          display: block;
+          width: 50%;
+          height: auto;
+        @media screen and (max-width: 1000px)  {
+          display: none;
+        }
+        }
    
    
       .login-form {
         text-align: left;
         width: 40%;
         margin: 0  10%;
+         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media screen and (max-width: 1000px)  {
+          width: 80%;
+        }
 
         .welcome {
             display: flex;
@@ -37,9 +75,7 @@ $input-color: #1031503d;
             color: $purple-color;
           }
         } 
-        .welcome-text {
-          color: $purple-color;
-        }
+     
         
         .form_input {
           width: 95%;
@@ -65,11 +101,11 @@ $input-color: #1031503d;
   
   
         .button {
-          display: inline-block;
-          padding: 14px 32px;
+          padding: 14px 28px;
           background-color: $light-color;
           color: $white-color;
           border: none;
+          width: 200px;
           border-radius: 50px;
           cursor: pointer;
   
@@ -88,12 +124,11 @@ $input-color: #1031503d;
           text-decoration: underline;
           margin: 0;
         }
-      }
-    }
-
+      } }
+    
     /* Scrollbar Styles */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 0px;
   }
 
   ::-webkit-scrollbar-track {
@@ -102,11 +137,11 @@ $input-color: #1031503d;
 
   ::-webkit-scrollbar-thumb {
     background-color: $light-color;
-    border-radius: 10px;
+    border-radius: 0px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: $darker-color;
+    background-color: transparent;
   }
 
   

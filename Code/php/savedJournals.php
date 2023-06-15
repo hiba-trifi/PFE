@@ -12,7 +12,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/journale.css">
+  <link rel="stylesheet" href="../styles/journals.css">
   <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -32,7 +32,7 @@ session_start();
  <div class="card fixed-right">
       <div class="card-body">
         <div class="user-profile">
-          <img src="user-profile-image.jpg" alt="">
+          <img src="../assets/profile.jpg" alt="">
           <h5 class="card-title">John Doe</h5>
          
         </div>
@@ -109,47 +109,11 @@ session_start();
       </div>
       <img src="../assets/menu.svg" alt="">
     </div>
-    <!-- create journal -->
-    <button type="button" class="fixed-button" data-bs-toggle="modal" data-bs-target="#createjournal">
-      <i class="fas fa-plus"></i>
-      Create
-    </button>
-    <!-- create journal modal -->
-    <div class="modal fade" id="createjournal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="createjournalLabel" aria-hidden="true">
-      <div class="modal-dialog  modal-dialog-centered  modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="user-info">
-              <img src="profile.jpg" alt="">
-              <span class="username">Anonymous User</span>
-            </div>
-            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <section class="publish-section">
-              <div class="publish-content">
-                <form method="post">
-                  <textarea class="publish-textarea" required name="content" placeholder="Write something..."></textarea>
-                  <div class="journal-info">
-                    <input type="text" required class="journal-name-input" name="journalName" placeholder="Enter Journal Name">
-                  </div>
-                  <div class="publish-actions">
-                    <button type="submit" name="create" class="publish-button">Publish</button>
-                  </div>
-                </form>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
     <section class="filters-section">
       <button name="filter" id="allBtn">All</button>
       <button name="filter" id="LikedBtn">Liked</button>
-      <button name="filter" id="savedrBtn">Popular</button>
+      <button name="filter" id="savedBtn">saved</button>
     </section>
 
 
@@ -160,8 +124,17 @@ session_start();
         $memberId = $_SESSION['Id'];
 
         if ($filter === 'all') {
-          $query = "SELECT * FROM likes INNER JOIN save ON likes.id_mb = save.id_mb JOIN journal ON likes.id_jr = journal.id_jr WHERE likes.id_mb = :memberId";
-        } elseif ($filter === 'saved') {
+          $query = "
+          SELECT journal.* 
+          FROM likes
+          INNER JOIN journal ON likes.id_jr = journal.id_jr
+          WHERE likes.id_mb = :memberId
+          UNION
+          SELECT journal.* 
+          FROM save
+          INNER JOIN journal ON save.id_jr = journal.id_jr
+          WHERE save.id_mb = :memberId";
+                } elseif ($filter === 'saved') {
           $query = "SELECT * FROM save JOIN journal ON save.id_jr = journal.id_jr WHERE save.id_mb = :memberId";
         } elseif ($filter === 'liked') {
           $query = "SELECT * FROM likes JOIN journal ON likes.id_jr = journal.id_jr WHERE likes.id_mb = :memberId";
@@ -189,7 +162,7 @@ session_start();
               <span class="journal-name"><?php echo $journalName; ?></span>
               <div class="user-info">
                 <span class="username">Anonymous User</span>
-                <img src="profile.jpg" alt="">
+                <img src="../assets/profile.jpg" alt="">
               </div>
             </div>
             <hr>
@@ -200,12 +173,49 @@ session_start();
             <div class="journal-footer">
               <div class="buttons d-flex justify-content-between">
                 <div class="likes">
-                  <button class="like-button" name="like" data-journal-id="<?php echo $journalId; ?>"><i class="fa-solid fa-heart"></i></button>
-                  <span class="like-count"><?php echo $journalLikes; ?> </span>
+                  <?php
+                  $query = "SELECT COUNT(*) as likeCount FROM likes WHERE id_jr = :journalId";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':journalId', $journalId);
+                  $stmt->execute();
+                  $result = $stmt->fetch();
+                  $likeCount = $result['likeCount'];
+
+                  $isLiked = false;
+
+                  $query = "SELECT * FROM likes WHERE id_jr = :journalId AND id_mb = :memberId";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':journalId', $journalId);
+                  $stmt->bindParam(':memberId', $memberId);
+                  $stmt->execute();
+
+                  if ($stmt->rowCount() > 0) {
+                    $isLiked = true;
+                  }
+                  ?>
+
+                  <button class="like-button" name="like" data-journal-id="<?php echo $journalId; ?>">
+                    <i class="<?php echo ($isLiked) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'; ?>"></i>
+                  </button>
+                  <span class="like-count"><?php echo $likeCount; ?></span>
                 </div>
+
+
                 <div class="saves">
-                  <span class="like-count "><?php echo $journalsaves; ?> </span>
-                  <button class="save-button" name="save" data-journal-id="<?php echo $journalId; ?>"><i class="fa-solid fa-bookmark"></i></button>
+                  <span class="save-count "><?php echo $journalsaves; ?> </span>
+                  <?php
+                  $query = "SELECT * FROM save WHERE id_jr = :journalId AND id_mb = :memberId";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':journalId', $journalId);
+                  $stmt->bindParam(':memberId', $memberId);
+                  $stmt->execute();
+                  if ($stmt->rowCount() > 0) {
+                    $isSaved = true;
+                  }
+                  ?>
+                  <button class="save-button" name="save" data-journal-id="<?php echo $journalId; ?>">
+                    <i class="<?php echo ($isSaved) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark'; ?>"></i>
+                  </button>
                 </div>
               </div>
             </div>

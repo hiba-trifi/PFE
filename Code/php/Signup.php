@@ -21,31 +21,29 @@ if (isset($_POST["signUp"])) {
         $plan = 3;
     }
     $errors = array();
-
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $name) or strlen($name) < 3) {
-        $errors["name"] = "Le name doit contenir plus que trois lettres";
-    } elseif (!preg_match("/^[a-zA-Z-' ]*$/", $last_name) or strlen($last_name) < 3) {
-        $errors["last_name"] = "Le last_name doit contenir plus que trois lettres";
-    } elseif (!isset($date_birth) or empty($date_birth)) {
-        $errors["date_birth"] = "Veuillez saisir la date de naissance";
-    } elseif (!isset($gender) or empty($gender)) {
-        $errors["gender"] = "Veuillez saisir un gender";
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $name) || strlen($name) < 3) {
+        $errors["name"] = "The name must contain more than three letters.";
+    } elseif (!preg_match("/^[a-zA-Z-' ]*$/", $last_name) || strlen($last_name) < 3) {
+        $errors["last_name"] = "The last name must contain more than three letters.";
+    } elseif (!isset($date_birth) || empty($date_birth)) {
+        $errors["date_birth"] = "Please enter the date of birth.";
+    } elseif (!isset($gender) || empty($gender)) {
+        $errors["gender"] = "Please enter a gender.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors["email"] = "Veuillez saisir un email correct";
+        $errors["email"] = "Please enter a valid email address.";
     } else {
         $check_email_query = "SELECT COUNT(*) FROM members WHERE mb_email = :email";
         $stmt = $pdo->prepare($check_email_query);
         $stmt->execute(['email' => $email]);
         $count = $stmt->fetchColumn();
         if ($count > 0) {
-            $errors["exist_mail"] = "Cet email existe déjà, veuillez saisir un autre";
+            $errors["exist_mail"] = "This email already exists. Please enter another email.";
         } elseif ($password != $cnf_password) {
-            $errors["confirm_password"] = "Vous n'avez pas saisi le même mot de passe";
+            $errors["confirm_password"] = "You did not enter the same password.";
         } else {
             $password = password_hash($password, PASSWORD_DEFAULT);
 
-
-            $add_member = "INSERT INTO `members` (`mb_name`, `mb_last_name`, `mb_birth`, `mb_gender`, `mb_email`, `mb_pswrd`, `mb_score`, `is_blocked`, `cmp_date`, `id_plan`) VALUES (:name, :last_name, :date_birth, :gender, :email, :password, :score, :is_blocked, NOW(), :plan)";
+            $add_member = "INSERT INTO `members` (`mb_name`, `mb_last_name`, `mb_birth`, `mb_gender`, `mb_email`, `mb_pswrd`, `mb_score`, `is_blocked`, `is_blocked`, `cmp_date`, `id_plan`) VALUES (:name, :last_name, :date_birth, :gender, :email, :password, :score, :is_blocked, NOW(), :plan)";
             $stmt = $pdo->prepare($add_member);
             $stmt->execute([
                 'name' => $name,
@@ -55,12 +53,12 @@ if (isset($_POST["signUp"])) {
                 'email' => $email,
                 'password' => $password,
                 'score' => $score,
-                'is_blocked' => 12,
+                'is_blocked' => 0,
                 'plan' => $plan,
             ]);
             $_SESSION["Id"] = $pdo->lastInsertId();
 
-            header("Location:./php/planTasks.php");
+            header("Location:./planTasks.php");
         }
     }
 }
@@ -69,24 +67,29 @@ if (isset($_POST["signUp"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/signup.css">
-  <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="jquery-3.6.4.min.js"></script>
 
-  <title>Mental Health Website</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/signup.css">
+    <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="jquery-3.6.4.min.js"></script>
+
+    <title>Mental Health Website</title>
 </head>
 
 <body>
 
-    <div class="page d-flex ">
-        <form class="login-form" action="" method="POST">
+<a href="../index.php" class="prev-page-button">
+  <i class="fas fa-arrow-left"></i>
+</a>
 
+
+    <div class="page">
+        <form class="login-form" action="" method="POST">
             <div class="welcome mt-5">
                 <h1 class="welcome-text">Register Yourself</h1>
                 <h4>Begin your journey with us today</h2>
@@ -101,26 +104,26 @@ if (isset($_POST["signUp"])) {
                     </ul>
                 </div>
             <?php endif; ?>
-            <div class="sigh up">
+            <div class="sighup">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <label class="mt-2 fs-4" for="name"> First Name : </label>
+                        <label class="mt-2 " for="name"> First Name : </label>
                         <input type="text" name="name" id="name" class="form_input-1 mt-4 ">
                     </div>
                     <div>
-                        <label class="mt-2 fs-4" for="last_name"> Last Name : </label>
+                        <label class="mt-2 " for="last_name"> Last Name : </label>
                         <input type="text" name="last_name" id="last_name" class="form_input-1 mt-4 ">
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-between ">
                     <div>
-                        <label class="mt-2 fs-4" for="date_birth"> Birth Date : </label>
-                        <input type="date" name="date_birth" id="date_birth" class="form_input-2 mt-4 ">
+                        <label class="mt-2 " for="date_birth"> Birth Date : </label>
+                        <input type="date" name="date_birth" id="date_birth" class="form_input-1 mt-4 ">
                     </div>
                     <div>
-                        <label class=" mt-2 fs-4" name="gender" for="gender"> gender : </label>
-                        <select class="form_input-2 mt-4" name="gender" aria-label="Default select example">
+                        <label class=" mt-2 " name="gender" for="gender"> gender : </label>
+                        <select class="form_input-1 mt-4" name="gender" aria-label="Default select example">
                             <option value="none">Choose your gender : </option>
                             <option value="male">male</option>
                             <option value="female">female</option>
@@ -130,28 +133,28 @@ if (isset($_POST["signUp"])) {
                 </div>
 
 
-                <label class="mt-2 fs-4" for="email"> Email : </label>
+                <label class="mt-2 " for="email"> Email : </label>
                 <input type="email" name="email" id="email" class="form_input mt-4 ">
 
 
-                <label class="mt-2  fs-4" for="psw"> Password : </label>
+                <label class="mt-2  " for="psw"> Password : </label>
                 <input type="password" name="password" id="psw" class="form_input mt-4 ">
 
 
-                <label class="mt-2  fs-4" for="psw">Confirme Password : </label>
+                <label class="mt-2  " for="psw">Confirme Password : </label>
                 <input type="password" name="cnf_password" id="psw" class="form_input mt-4 ">
 
 
             </div>
             <div class=" d-flex flex-column justify-content-center align-items-center mt-5 ">
-                <input type="submit" name="signUp" value="S'inscrire" class="button  btn  btn-lg w-25 my-5  rounded-pill ">
+                <input type="submit" name="signUp" value="S'inscrire" class="button  btn  btn-lg  my-5  rounded-pill ">
                 <div class="d-flex">
-                    <p class="form_info">Avez vous déjà un compte ?</p>
-                    <a class="form_toogle mx-2" href="./Login.php">Connectez-vous ici</a>
+                    <p class="form_info">Already have an account?</p>
+                    <a class="form_toogle mx-2" href="./Login.php">Log in here</a>
                 </div>
             </div>
         </form>
-        <img class="" src="../assets/sign up.svg" alt="">
+        <img  src="../assets/sign up.svg" alt="">
     </div>
     <script src="https://kit.fontawesome.com/62ff79fbfd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+body a {
+  color: #144162;
+  text-decoration: none;
+}
+
+.hamburger-btn {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  background-color: white;
+  display: none;
+  padding: 10px;
+}
+.hamburger-btn i {
+  color: #103150;
+}
+@media screen and (max-width: 1000px) {
+  .hamburger-btn {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+  }
+}
+
+.sidebar {
+  width: 300px;
+  background: linear-gradient(180deg, #103150 33.2%, #144162 92.38%);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.sidebar .exit-btn {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  background-color: white;
+  padding: 10px;
+  display: none;
+}
+.sidebar .exit-btn i {
+  color: #103150;
+}
+.sidebar .sections {
+  padding-left: 20px;
+}
+.sidebar .sections .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2%;
+}
+.sidebar .sections .profile img {
+  width: 200px;
+  height: 200px;
+}
+.sidebar .sections .profile .username {
+  color: white;
+  text-align: center;
+}
+.sidebar .sections hr {
+  background-color: #4d5db5;
+  height: 1px;
+  border: none;
+  margin: 20% 0;
+}
+.sidebar .sections .section {
+  margin-bottom: 15%;
+}
+.sidebar .sections .section h3 {
+  color: #bdbdbd;
+  text-decoration: underline;
+  margin: 7% 0;
+  padding: 0 10px;
+}
+.sidebar .sections .section .sidebar_links {
+  width: 100%;
+}
+.sidebar .sections .section .sidebar_links div {
+  padding: 3%;
+}
+.sidebar .sections .section .sidebar_links div:hover {
+  background-color: #ff916c;
+}
+.sidebar .sections .section .sidebar_links div a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .sections .disconnect-link {
+  margin-top: auto;
+  position: absolute;
+  bottom: 20px;
+}
+.sidebar .sections .disconnect-link hr {
+  width: 100%;
+}
+.sidebar .sections .disconnect-link .btn-group .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    display: none;
+    transition: transform 1s ease;
+    overflow: scroll;
+  }
+  .sidebar .profile {
+    margin-bottom: 1%;
+  }
+  .sidebar.open {
+    display: block;
+    transition: transform 1s ease;
+    transform: translateX(0);
+  }
+  .sidebar .exit-btn {
+    display: block;
+  }
+}/*# sourceMappingURL=admin-sidebar.css.map */

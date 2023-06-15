@@ -12,7 +12,7 @@ $(document).ready(function () {
       loadJournals("liked");
     });
   
-    $("#savedrBtn").click(function () {
+    $("#savedBtn").click(function () {
       console.log("saved clicked");
       loadJournals("saved");
     });
@@ -28,47 +28,63 @@ $(document).ready(function () {
         },
       });
     }
-  
+
+
+
     // Like and Save
+  $(document).on("click", ".like-button", function (e) {
+    e.preventDefault();
+    var likeButton = $(this);
+    var journalId = likeButton.data("journal-id");
+    var likeCountSpan = likeButton.siblings(".like-count");
   
-    $(document).on("click", ".like-button", function (e) {
-      e.preventDefault();
-      var journalId = $(this).data("journal-id");
-      var likeCountSpan = $(this).siblings(".like-count"); 
+    $.post(
+      "journals.php",
+      {
+        journalId: journalId,
+        like: true,
+      },
+      function (response) {
+        console.log(response);
   
-      $.post(
-        "savedJournals.php",
-        {
-          journalId: journalId,
-          like: true,
-        },
-        function (response) {
-          console.log(response);
-          var currentLikeCount = parseInt(likeCountSpan.text());
-          if (response === "liked") {
-            likeCountSpan.text(currentLikeCount + 1);
-          } else {
-            likeCountSpan.text(currentLikeCount - 1);
-          }
-        
+        if (likeButton.find("i").hasClass("fa-solid")) {
+          likeButton.find("i").removeClass("fa-solid").addClass("fa-regular");
+          likeCountSpan.text(parseInt(likeCountSpan.text()) - 1);
+        } else {
+          likeButton.find("i").removeClass("fa-regular").addClass("fa-solid");
+          likeCountSpan.text(parseInt(likeCountSpan.text()) + 1);
         }
-      );
-    });   
-    
-    $(document).on("click", ".save-button", function (e) {
-      e.preventDefault();
-      var journalId = $(this).data("journal-id");
+      }
+    );
+  });
   
-      $.post(
-        "savedJournals.php",
-        {
-          journalId: journalId,
-          save: true,
-        },
-        function (response) {
-          console.log(response);
+  $(document).on("click", ".save-button", function (e) {
+    e.preventDefault();
+    var saveButton = $(this);
+    var journalId = saveButton.data("journal-id");
+    var saveCountSpan = saveButton.siblings(".save-count");
+  
+    $.post(
+      "journals.php",
+      {
+        journalId: journalId,
+        save: true,
+      },
+      function (response) {
+        console.log(response);
+  
+        if (saveButton.find("i").hasClass("fa-solid")) {
+          saveButton.find("i").removeClass("fa-solid").addClass("fa-regular");
+          saveCountSpan.text(parseInt(saveCountSpan.text()) - 1);
+        } else {
+          saveButton.find("i").removeClass("fa-regular").addClass("fa-solid");
+          saveCountSpan.text(parseInt(saveCountSpan.text()) + 1);
         }
-      );
-    });
+      }
+    );
+  });
+  
+  
+  
   });
   

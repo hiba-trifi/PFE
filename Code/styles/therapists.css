@@ -1,0 +1,139 @@
+/* Global Styles */
+body {
+  background-color: whitesmoke;
+}
+body a {
+  color: #144162;
+  text-decoration: none;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+  padding: 50px 100px;
+}
+@media screen and (min-width: 1000px) {
+  body header {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
+body header .decription {
+  width: 60%;
+  padding: 0 20px;
+}
+body header .decription h1 {
+  color: #ff916c;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+body header .decription p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+}
+body header img {
+  width: 400px;
+}
+@media screen and (min-width: 1000px) {
+  body main {
+    width: calc(100% - 310px);
+    margin-left: 310px;
+  }
+}
+body main .search-section {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+  width: auto;
+  margin: 20px 0;
+}
+body main .search-section form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .search-section form input,
+body main .search-section form select {
+  margin: 0 5px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+}
+body main .search-section form label {
+  color: #ff916c;
+  margin-right: 10px;
+}
+body main .search-section form button {
+  margin: 0 5px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: #4d5db5;
+  color: white;
+}
+body main .search-section form button:hover {
+  background-color: #144162;
+}
+@media screen and (max-width: 500px) {
+  body main .search-section {
+    justify-content: center;
+  }
+  body main .search-section form {
+    flex-direction: column;
+  }
+  body main .search-section form .contain {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body main .search-section form button {
+    width: 50%;
+  }
+}
+body main .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+}
+body main .card-container .card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: none;
+  overflow: hidden;
+}
+body main .card-container .card-img {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .card-container .card-img img {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body main .card-container .card-content {
+  flex: 1;
+  padding: 20px;
+}
+body main .card-container .card-content .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+body main .card-container .card-content .card-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}/*# sourceMappingURL=therapists.css.map */

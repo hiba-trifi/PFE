@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../styles/navbar.css">
 <nav class="navbar">
   
-        <div class="user-profile">
+        <div class="../assets/profile.jpg">
            
             <div class="dropdown me-4">
                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

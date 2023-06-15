@@ -1,7 +1,6 @@
 <?php
 require_once '../includes/dbh.inc.php';
 error_reporting(E_ERROR | E_PARSE);
-// error_reporting(E_ALL);
 session_start();
 ?>
 
@@ -12,7 +11,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/journale.css">
+  <link rel="stylesheet" href="../styles/journals.css">
   <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -29,16 +28,48 @@ session_start();
 
   <main class="">
 
-  <!-- menu -->
-  <div class="card fixed-right">
+    <?php
+    if (isset($_POST['create'])) {
+      if (strlen($_POST['content']) < 100) {
+    ?>
+        <div class="alert alert-danger  mt-5" role="alert">
+          <h4 class="alert-heading">Erreur!</h4>
+          <?php echo "Error: Content must be at least 100 characters long."; ?>
+        </div>
+
+    <?php
+      } else {
+        $content = $_POST['content'];
+        $journalName = $_POST['journalName'];
+        if (isset($_SESSION['Id'])) {
+          $memberId = $_SESSION['Id'];
+          $publish_journal = "INSERT INTO `journal` (`jr_name`, `jr_date`, `jr_content`, `jr_state`, `is_prooved`, `id_mb`) VALUES (:journalName, NOW(), :content, :state, :prooved, :id_mb)";
+          $stmt = $pdo->prepare($publish_journal);
+          $stmt->execute([
+            'journalName' => $journalName,
+            'content' => $content,
+            'state' => "unpublished",
+            'prooved' => 1,
+            'id_mb' => $memberId,
+          ]);
+          echo "Journal created successfully.";
+        } else {
+          echo "Error: User session not found.";
+        }
+      }
+    }
+    ?>
+
+    <!-- menu -->
+    <div class="card fixed-right">
       <div class="card-body">
         <div class="user-profile">
-          <img src="user-profile-image.jpg" alt="">
+          <img src="../assets/profile.jpg" alt="">
           <h5 class="card-title">John Doe</h5>
-       
+
         </div>
         <hr>
-           <div class="card-progress ">
+        <div class="card-progress ">
           <h5> Your progress : </h5>
           <?php
           $memberId = $_SESSION['Id'];
@@ -121,7 +152,7 @@ session_start();
         <div class="modal-content">
           <div class="modal-header">
             <div class="user-info">
-              <img src="profile.jpg" alt="">
+              <img src="../assets/profile.jpg" alt="">
               <span class="username">Anonymous User</span>
             </div>
             <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
@@ -162,13 +193,13 @@ session_start();
         $filter = $_POST['filter'];
 
         if ($filter === 'all') {
-          $query = "SELECT * FROM journal ORDER BY RAND()";
+          $query = "SELECT * FROM journal WHERE jr_state = 'published' ORDER BY RAND()";
         } elseif ($filter === 'latest') {
-          $query = "SELECT * FROM journal ORDER BY jr_date DESC";
+          $query = "SELECT * FROM journal WHERE jr_state = 'published' ORDER BY jr_date DESC";
         } elseif ($filter === 'mostLiked') {
-          $query = "SELECT * FROM journal ORDER BY jr_likes DESC;";
+          $query = "SELECT * FROM journal WHERE jr_state = 'published' ORDER BY jr_likes DESC;";
         } elseif ($filter === 'popular') {
-          $query = "SELECT * FROM journal ORDER BY jr_saves DESC;";
+          $query = "SELECT * FROM journal WHERE jr_state = 'published' ORDER BY jr_saves DESC;";
         }
         $stmt = $pdo->query($query);
         $journals = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -190,7 +221,7 @@ session_start();
               <span class="journal-name"><?php echo $journalName; ?></span>
               <div class="user-info">
                 <span class="username">Anonymous User</span>
-                <img src="profile.jpg" alt="">
+                <img src="../assets/profile.jpg" alt="">
               </div>
             </div>
             <hr>
@@ -201,12 +232,49 @@ session_start();
             <div class="journal-footer">
               <div class="buttons d-flex justify-content-between">
                 <div class="likes">
-                  <button class="like-button" name="like" data-journal-id="<?php echo $journalId; ?>"><i class="fa-solid fa-heart"></i></button>
-                  <span class="like-count"><?php echo $journalLikes; ?> </span>
+                  <?php
+                  $query = "SELECT COUNT(*) as likeCount FROM likes WHERE id_jr = :journalId";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':journalId', $journalId);
+                  $stmt->execute();
+                  $result = $stmt->fetch();
+                  $likeCount = $result['likeCount'];
+
+                  $isLiked = false;
+
+                  $query = "SELECT * FROM likes WHERE id_jr = :journalId AND id_mb = :memberId";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':journalId', $journalId);
+                  $stmt->bindParam(':memberId', $memberId);
+                  $stmt->execute();
+
+                  if ($stmt->rowCount() > 0) {
+                    $isLiked = true;
+                  }
+                  ?>
+
+                  <button class="like-button" name="like" data-journal-id="<?php echo $journalId; ?>">
+                    <i class="<?php echo ($isLiked) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'; ?>"></i>
+                  </button>
+                  <span class="like-count"><?php echo $likeCount; ?></span>
                 </div>
+
+
                 <div class="saves">
-                  <span class="like-count "><?php echo $journalsaves; ?> </span>
-                  <button class="save-button" name="save" data-journal-id="<?php echo $journalId; ?>"><i class="fa-solid fa-bookmark"></i></button>
+                  <span class="save-count "><?php echo $journalsaves; ?> </span>
+                  <?php
+                  $query = "SELECT * FROM save WHERE id_jr = :journalId AND id_mb = :memberId";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':journalId', $journalId);
+                  $stmt->bindParam(':memberId', $memberId);
+                  $stmt->execute();
+                  if ($stmt->rowCount() > 0) {
+                    $isSaved = true;
+                  }
+                  ?>
+                  <button class="save-button" name="save" data-journal-id="<?php echo $journalId; ?>">
+                    <i class="<?php echo ($isSaved) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark'; ?>"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -215,67 +283,67 @@ session_start();
       <?php
         }
       }
+
+      $journalId = $_POST['journalId'];
+      $memberId = $_SESSION['Id'];
+
+      if (isset($_POST['like'])) {
+        $query = "SELECT * FROM likes WHERE id_mb = :memberId AND id_jr = :journalId";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+        $result = $stmt->fetch();
+        if (!$result) {
+          $Query = "INSERT INTO likes (id_mb, id_jr) VALUES (:memberId, :journalId)";
+          $stmt = $pdo->prepare($Query);
+          $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+
+          $updateQuery = "UPDATE journal SET jr_likes = jr_likes + 1 WHERE id_jr = :journalId";
+          $stmt = $pdo->prepare($updateQuery);
+          $stmt->execute(['journalId' => $journalId]);
+          echo "liked";
+        } else {
+          $Query = "DELETE FROM likes WHERE id_mb = :memberId AND id_jr = :journalId";
+          $stmt = $pdo->prepare($Query);
+          $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+
+          $updateQuery = "UPDATE journal SET jr_likes = jr_likes - 1 WHERE id_jr = :journalId";
+          $stmt = $pdo->prepare($updateQuery);
+          $stmt->execute(['journalId' => $journalId]);
+          echo "unliked";
+        }
+      } elseif (isset($_POST['save'])) {
+
+        $query = "SELECT * FROM save WHERE id_mb = :memberId AND id_jr = :journalId";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+        $result = $stmt->fetch();
+
+        if (!$result) {
+          $Query = "INSERT INTO save (id_mb, id_jr) VALUES (:memberId, :journalId)";
+          $stmt = $pdo->prepare($Query);
+          $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+
+          $updateQuery = "UPDATE journal SET jr_saves = jr_saves + 1 WHERE id_jr = :journalId";
+          $stmt = $pdo->prepare($updateQuery);
+          $stmt->execute(['journalId' => $journalId]);
+          echo "saved";
+        } else {
+          $Query = "DELETE FROM save WHERE id_mb = :memberId AND id_jr = :journalId";
+          $stmt = $pdo->prepare($Query);
+          $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+
+          $updateQuery = "UPDATE journal SET jr_saves = jr_saves - 1 WHERE id_jr = :journalId";
+          $stmt = $pdo->prepare($updateQuery);
+          $stmt->execute(['journalId' => $journalId]);
+          echo "unsaved";
+        }
+      }
       ?>
+
     </section>
   </main>
 
 
-  <?php
-  $journalId = $_POST['journalId'];
-  $memberId = $_SESSION['Id'];
-
-  if (isset($_POST['like'])) {
-    $query = "SELECT * FROM likes WHERE id_mb = :memberId AND id_jr = :journalId";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
-    $result = $stmt->fetch();
-    if (!$result) {
-      $Query = "INSERT INTO likes (id_mb, id_jr) VALUES (:memberId, :journalId)";
-      $stmt = $pdo->prepare($Query);
-      $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
-
-      $updateQuery = "UPDATE journal SET jr_likes = jr_likes + 1 WHERE id_jr = :journalId";
-      $stmt = $pdo->prepare($updateQuery);
-      $stmt->execute(['journalId' => $journalId]);
-      echo "liked";
-    } else {
-      $Query = "DELETE FROM likes WHERE id_mb = :memberId AND id_jr = :journalId";
-      $stmt = $pdo->prepare($Query);
-      $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
-
-      $updateQuery = "UPDATE journal SET jr_likes = jr_likes - 1 WHERE id_jr = :journalId";
-      $stmt = $pdo->prepare($updateQuery);
-      $stmt->execute(['journalId' => $journalId]);
-      echo "unliked";
-    }
-  } elseif (isset($_POST['save'])) {
-
-    $query = "SELECT * FROM save WHERE id_mb = :memberId AND id_jr = :journalId";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
-    $result = $stmt->fetch();
-
-    if (!$result) {
-      $Query = "INSERT INTO save (id_mb, id_jr) VALUES (:memberId, :journalId)";
-      $stmt = $pdo->prepare($Query);
-      $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
-
-      $updateQuery = "UPDATE journal SET jr_saves = jr_saves + 1 WHERE id_jr = :journalId";
-      $stmt = $pdo->prepare($updateQuery);
-      $stmt->execute(['journalId' => $journalId]);
-      echo "saved";
-    } else {
-      $Query = "DELETE FROM save WHERE id_mb = :memberId AND id_jr = :journalId";
-      $stmt = $pdo->prepare($Query);
-      $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
-
-      $updateQuery = "UPDATE journal SET jr_saves = jr_saves - 1 WHERE id_jr = :journalId";
-      $stmt = $pdo->prepare($updateQuery);
-      $stmt->execute(['journalId' => $journalId]);
-      echo "unsaved";
-    }
-  }
-  ?>
   <script src="../js/journals.js"></script>
 
 </body>

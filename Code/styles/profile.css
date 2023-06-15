@@ -1,0 +1,86 @@
+body {
+  background-color: whitesmoke;
+}
+body a {
+  color: #144162;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+  padding: 50px 100px;
+}
+@media screen and (min-width: 1000px) {
+  header {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
+header .decription {
+  width: 60%;
+  padding: 0 20px;
+}
+header .decription h1 {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+header img {
+  width: 200px;
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    width: calc(100% - 370px);
+    margin-left: 340px;
+  }
+}
+main .profile .statistics {
+  margin: 30px 0;
+}
+main .profile .statistics .statistic-card {
+  background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+  width: 300px;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  main .profile .statistics {
+    flex-wrap: wrap;
+  }
+}
+main .profile .card {
+  flex-direction: row;
+}
+main .profile .card .edit-section .delete {
+  text-align: end;
+}
+main .profile .card .edit-section .delete a {
+  text-decoration: underline;
+  color: red;
+}
+@media screen and (max-width: 500px) {
+  main .profile .card {
+    flex-direction: column;
+  }
+}
+main .profile .edit-btn {
+  background-color: #4d5db5;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+}
+main .profile .edit-btn:hover {
+  background-color: #ffa181;
+}
+main .profile .save-btn {
+  background-color: #ffa181;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+}
+main .profile .save-btn:hover {
+  background-color: #4d5db5;
+}/*# sourceMappingURL=profile.css.map */

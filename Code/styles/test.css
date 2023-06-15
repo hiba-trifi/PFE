@@ -1,3 +1,42 @@
+.prev-page-button {
+  text-decoration: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #103150;
+  color: white;
+  box-shadow: 0 2px 4px rgba(16, 49, 80, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.prev-page-button:hover {
+  background-color: #ff916c;
+}
+.prev-page-button i {
+  font-size: 20px;
+}
+
+.test img {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+@media (max-width: 1000px) {
+  .test img {
+    max-width: 20%;
+  }
+}
+@media (max-width: 480px) {
+  .test img {
+    max-width: 10%;
+  }
+}
 .test .container {
   margin-top: 10%;
   display: flex;
@@ -39,13 +78,27 @@
 }
 .test form .question button {
   padding: 10px 20px;
-  background-color: #ff916c;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
   margin-top: 10px;
 }
-.test form .question button:hover {
+.test form .question button.next {
+  background-color: #4d5db5;
+}
+.test form .question button.back {
   background-color: #103150;
+}
+.test form .question button:hover {
+  background-color: #ff916c;
+}
+.test form .question .submit {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 10px 50px;
+  background-color: #144162;
 }/*# sourceMappingURL=test.css.map */

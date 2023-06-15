@@ -187,6 +187,14 @@ body main .journals .journal .journal-content {
 body main .journals .journal .journal-footer {
   margin-top: 10px;
 }
+body main .journals .journal .journal-footer .btn-group button {
+  color: white;
+  border: none;
+  background-color: transparent;
+}
+body main .journals .journal .journal-footer .btn-group button i {
+  color: #150c28;
+}
 body main .journals .journal .journal-footer .buttons .likes button {
   border: none;
   background-color: transparent;
@@ -246,4 +254,4 @@ body main .user-details div span {
 }
 body main .user-details div .plan-num {
   font-weight: bold;
-}/*# sourceMappingURL=journale.css.map */
+}/*# sourceMappingURL=journals.css.map */
