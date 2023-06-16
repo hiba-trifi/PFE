@@ -19,9 +19,11 @@ body {
     align-items: center;
     background: linear-gradient(180deg, #103150 33.2%, #144162 92.38%);
     padding: 50px 100px;
+    border-radius: 0 0 20px 20px;
+
     @media screen and (min-width: 1000px) {
-      width: calc(100% - 300px);
-      margin-left: 300px;
+      width: calc(100% - 330px);
+      margin-left: 315px;
     }
 
     .decription {

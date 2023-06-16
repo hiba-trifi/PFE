@@ -33,7 +33,6 @@
 }
 .page img {
   display: block;
-  width: 50%;
   height: auto;
 }
 @media screen and (max-width: 1000px) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 09, 2023 at 04:01 PM
+-- Generation Time: Jun 15, 2023 at 05:39 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -31,11 +31,19 @@ DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id_adm` int NOT NULL AUTO_INCREMENT,
   `adm_name` varchar(50) DEFAULT NULL,
-  `adm_lastename` varchar(50) DEFAULT NULL,
+  `adm_last_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `adm_email` varchar(50) DEFAULT NULL,
-  `adm_pswrd` varchar(50) DEFAULT NULL,
+  `adm_pswrd` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_adm`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_adm`, `adm_name`, `adm_last_name`, `adm_email`, `adm_pswrd`) VALUES
+(2, 'admin', 'two', 'admin2@gmail.com', '$2y$10$VZqJAA.Ezc/2MrqUuhVj1eZMIs5TU3XYgNq0x0EzYE4JxlJwrbxYa'),
+(33, 'admin', 'one', 'admin1@gmail.com', '$2y$10$B9/dRc4z7qmeTkAnnt/LqeNoZKg6pFNBJLnpaCxdJprKnMw6WZYEG');
 
 -- --------------------------------------------------------
 
@@ -56,8 +64,11 @@ CREATE TABLE IF NOT EXISTS `completed_tasks` (
 --
 
 INSERT INTO `completed_tasks` (`id_mb`, `id_tsk`) VALUES
-(1, 72),
-(1, 73);
+(1, 73),
+(1, 74),
+(5, 72),
+(5, 76),
+(5, 77);
 
 -- --------------------------------------------------------
 
@@ -89,29 +100,30 @@ CREATE TABLE IF NOT EXISTS `journal` (
   `jr_date` date DEFAULT NULL,
   `jr_content` varchar(8000) DEFAULT NULL,
   `jr_state` varchar(50) DEFAULT NULL,
-  `is_prooved` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `is_prooved` bit(1) DEFAULT NULL,
   `jr_likes` int NOT NULL,
   `jr_saves` int NOT NULL,
   `id_mb` int NOT NULL,
   PRIMARY KEY (`id_jr`),
   KEY `id_mb` (`id_mb`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `journal`
 --
 
 INSERT INTO `journal` (`id_jr`, `jr_name`, `jr_date`, `jr_content`, `jr_state`, `is_prooved`, `jr_likes`, `jr_saves`, `id_mb`) VALUES
-(1, 'Positive  Day', '2023-06-09', 'Today, I had a productive day at work. I completed all my tasks and received positive feedback from my supervisor. It felt great to be recognized for my hard work and dedication. In the evening, I went for a refreshing walk in the park and enjoyed the beautiful sunset. It was a peaceful moment that allowed me to clear my mind and appreciate the simple joys of life.\r\n\r\nOverall, today was a good day filled with accomplishments and moments of serenity. I\'m grateful for the opportunities and experiences that came my way. Tomorrow, I plan to continue this positive momentum and make progress towards my goals.\r\n\r\nEnd of log entry.\r\n\r\nIn this example, the log entry provides a brief summary of the day\'s activities, emotions, and reflections. It captures key highlights without going into extensive detail.', 'published', '1', 2, 0, 1),
-(8, 'Finding Inner Strength', '2023-06-09', 'Faced a challenge today that pushed me out of my comfort zone. Despite the initial fear, I tapped into my inner strength and embraced the opportunity for growth. Proud of myself for taking the leap', 'unpublished', '1', 2, 1, 4),
-(2, 'Reflections on a Productive Day', '2023-06-09', '\r\nToday was a productive day, despite the challenges. I woke up early, feeling motivated and ready to tackle my tasks. I started by organizing my workspace, decluttering my desk, and creating a to-do list for the day.\r\n\r\nThroughout the day, I focused on completing one task at a time, staying focused and avoiding distractions. I made progress on a project that has been lingering for a while, and it felt great to finally see it coming together.\r\n\r\nIn the afternoon, I took short breaks to recharge and clear my mind. I went for a walk outside and practiced deep breathing exercises. These moments of mindfulness helped me maintain my energy and stay focused.\r\n\r\nBy the end of the day, I had accomplished most of my tasks. I felt a sense of satisfaction and fulfillment, knowing that I had made the most of my time and efforts. It\'s days like these that remind me of my capabilities and motivate me to keep pushing forward.\r\n\r\nDespite the occasional setbacks and moments of self-doubt, I am grateful for days like today. They serve as a reminder that with determination and a positive mindset, I can overcome any challenges and achieve my goals.\r\n\r\nLooking forward to more productive days ahead!', 'published', '1', 2, 0, 1),
-(3, 'Morning Reflections', '2023-06-09', 'Today, I woke up feeling grateful for the new day ahead. I spent some time meditating and setting positive intentions for the day. Excited to see what unfolds!', 'unpublished', '1', 3, 0, 1),
-(4, 'Nature\'s Beauty', '2023-06-09', 'Took a walk in the park today and marveled at the beauty of nature. The colorful flowers and chirping birds instantly lifted my spirits. Grateful for moments of tranquility.', 'published', '1', 1, 0, 2),
-(5, 'A Moment of Joy', '2023-06-09', 'Had a heartwarming conversation with a loved one today. Their words of encouragement and support brought tears of joy to my eyes. Feeling blessed to have such amazing people in my life', 'unpublished', '1', 0, 0, 2),
-(6, 'Self-Care Saturday', '2023-06-09', 'Dedicated today to self-care. Indulged in a bubble bath, read my favorite book, and treated myself to a delicious homemade meal. Taking time for self-nurturing is truly rejuvenating.', 'published', '1', 1, 1, 3),
-(7, 'Gratitude', '2023-06-09', 'Today, I am grateful for the simple pleasures in life - a warm cup of coffee, a sunny day, and laughter shared with friends. Gratitude fills my heart with joy and contentment.', 'unpublished', '1', 2, 0, 3),
-(9, 'Acts of Kindness', '2023-06-09', 'Spread kindness today by helping a stranger carry their groceries, offering a listening ear to a friend in need, and leaving positive notes for coworkers. Small acts of kindness create ripples of positivity', 'unpublished', '1', 0, 1, 4),
-(10, 'Embracing Imperfection', '2023-06-09', 'Realized that imperfection is a beautiful part of being human. Instead of striving for perfection, I embraced my flaws and celebrated my unique journey. Embracing imperfection is liberating', 'unpublished', '1', 2, 0, 4);
+(1, 'Positive  Day', '2023-06-09', 'Today, I had a productive day at work. I completed all my tasks and received positive feedback from my supervisor. It felt great to be recognized for my hard work and dedication. In the evening, I went for a refreshing walk in the park and enjoyed the beautiful sunset. It was a peaceful moment that allowed me to clear my mind and appreciate the simple joys of life.\r\n\r\nOverall, today was a good day filled with accomplishments and moments of serenity. I\'m grateful for the opportunities and experiences that came my way. Tomorrow, I plan to continue this positive momentum and make progress towards my goals.\r\n\r\nEnd of log entry.\r\n\r\nIn this example, the log entry provides a brief summary of the day\'s activities, emotions, and reflections. It captures key highlights without going into extensive detail.', 'unpublished', b'1', 1, 0, 1),
+(8, 'Finding Inner Strength', '2023-06-09', 'Faced a challenge today that pushed me out of my comfort zone. Despite the initial fear, I tapped into my inner strength and embraced the opportunity for growth. Proud of myself for taking the leap', 'unpublished', b'1', 3, 2, 4),
+(2, 'Reflections on a Productive Day', '2023-06-09', '\r\nToday was a productive day, despite the challenges. I woke up early, feeling motivated and ready to tackle my tasks. I started by organizing my workspace, decluttering my desk, and creating a to-do list for the day.\r\n\r\nThroughout the day, I focused on completing one task at a time, staying focused and avoiding distractions. I made progress on a project that has been lingering for a while, and it felt great to finally see it coming together.\r\n\r\nIn the afternoon, I took short breaks to recharge and clear my mind. I went for a walk outside and practiced deep breathing exercises. These moments of mindfulness helped me maintain my energy and stay focused.\r\n\r\nBy the end of the day, I had accomplished most of my tasks. I felt a sense of satisfaction and fulfillment, knowing that I had made the most of my time and efforts. It\'s days like these that remind me of my capabilities and motivate me to keep pushing forward.\r\n\r\nDespite the occasional setbacks and moments of self-doubt, I am grateful for days like today. They serve as a reminder that with determination and a positive mindset, I can overcome any challenges and achieve my goals.\r\n\r\nLooking forward to more productive days ahead!', 'unpublished', b'1', 3, 0, 1),
+(3, 'Morning Reflections', '2023-06-09', 'Today, I woke up feeling grateful for the new day ahead. I spent some time meditating and setting positive intentions for the day. Excited to see what unfolds!', 'unpublished', b'1', 3, 0, 1),
+(4, 'Nature\'s Beauty', '2023-06-09', 'Took a walk in the park today and marveled at the beauty of nature. The colorful flowers and chirping birds instantly lifted my spirits. Grateful for moments of tranquility.', 'published', b'1', 2, 1, 2),
+(5, 'A Moment of Joy', '2023-06-09', 'Had a heartwarming conversation with a loved one today. Their words of encouragement and support brought tears of joy to my eyes. Feeling blessed to have such amazing people in my life', 'unpublished', b'1', 0, 1, 2),
+(6, 'Self-Care Saturday', '2023-06-09', 'Dedicated today to self-care. Indulged in a bubble bath, read my favorite book, and treated myself to a delicious homemade meal. Taking time for self-nurturing is truly rejuvenating.', 'published', b'1', 1, 2, 3),
+(7, 'Gratitude', '2023-06-09', 'Today, I am grateful for the simple pleasures in life - a warm cup of coffee, a sunny day, and laughter shared with friends. Gratitude fills my heart with joy and contentment.', 'unpublished', b'1', 2, 0, 3),
+(9, 'Acts of Kindness', '2023-06-09', 'Spread kindness today by helping a stranger carry their groceries, offering a listening ear to a friend in need, and leaving positive notes for coworkers. Small acts of kindness create ripples of positivity', 'unpublished', b'1', 2, 1, 4),
+(10, 'Embracing Imperfection', '2023-06-09', 'Realized that imperfection is a beautiful part of being human. Instead of striving for perfection, I embraced my flaws and celebrated my unique journey. Embracing imperfection is liberating', 'unpublished', b'1', 2, 0, 4),
+(11, 'workspace', '2023-06-13', 'Today was a productive day, despite the challenges. I woke up early, feeling motivated and ready to tackle my tasks. I started by organizing my workspace, decluttering my desk, and creating a to-do list for the day. Throughout the day, I focused on completing one task at a time, staying focused and avoiding distractions. I made progress on a project that has been lingering for a while, and it felt great to finally see it coming together. In the afternoon, I took short breaks to recharge and clear my mind. I went for a walk outside and practiced deep breathing exercises. ', 'published', b'1', 3, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -132,19 +144,17 @@ CREATE TABLE IF NOT EXISTS `likes` (
 --
 
 INSERT INTO `likes` (`id_mb`, `id_jr`) VALUES
-(1, 1),
 (1, 2),
 (1, 3),
 (1, 4),
-(1, 6),
 (1, 7),
 (1, 8),
-(1, 10),
+(1, 9),
+(1, 11),
 (2, 7),
 (2, 8),
 (3, 1),
-(3, 3),
-(3, 10);
+(3, 3);
 
 -- --------------------------------------------------------
 
@@ -167,17 +177,17 @@ CREATE TABLE IF NOT EXISTS `members` (
   `id_plan` int NOT NULL,
   PRIMARY KEY (`id_mb`),
   KEY `id_plan` (`id_plan`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `members`
 --
 
 INSERT INTO `members` (`id_mb`, `mb_name`, `mb_last_name`, `mb_birth`, `mb_gender`, `mb_email`, `mb_pswrd`, `mb_score`, `is_blocked`, `cmp_date`, `id_plan`) VALUES
-(1, 'hiba', 'trifi', '2023-06-02', 'male', 'trifi.hiba.solicode@gmail.com', '$2y$10$ZVuDANjSlSHRcqq2UYpOsue7nh8XQag3TMhmark5oCAe.FVauxxGm', 44, b'1', '2023-06-08', 2),
-(2, 'user ', 'two', '2023-05-29', 'male', 'user2@gmail.com', '$2y$10$RkIqhATvIMAvdHZ1aQNEyu5fNewf2s99wXXoJ0Tnme./xAK627W2G', 100, b'1', '2023-06-09', 3),
+(1, 'hiba', 'trifi', '2023-06-02', 'male', 'trifi.hiba.solicode@gmai.com', '$2y$10$AcymKbYnNT4vtf.3oY6KXeqlrx5hpjBd49MPQhYX32ZEvn9CrDaQm', 44, b'1', '2023-06-08', 2),
+(2, 'user', 'one', '2023-05-29', 'male', 'user2@gmail.com', '$2y$10$83sWuHgXrdfBGCIdSR/GLeaoXW5d.XtKMolibsmmofKldMDqS6LWy', 100, b'1', '2023-06-09', 3),
 (3, 'user', 'three', '2023-05-30', 'female', 'user3@gmail.com', '$2y$10$sBarhTkmlWb9.TGNf/CjJO2a.tM/WHMT4VQ8tyr1z/ZAnq1tw8pWq', 60, b'1', '2023-06-09', 2),
-(4, 'user', 'four', '2021-06-09', 'prefer_not_to_say', 'user4@gmail.com', '$2y$10$RIyfwGyFPyoz0EPb4hFNveIBIv5tFuDw0Ws9tSmEgiGBa./UCAH/m', 48, b'1', '2023-06-09', 2);
+(4, 'user', 'four', '2021-06-09', 'prefer_not_to_say', 'user4@gmail.com', '$2y$10$RIyfwGyFPyoz0EPb4hFNveIBIv5tFuDw0Ws9tSmEgiGBa./UCAH/m', 48, b'0', '2023-06-09', 2);
 
 -- --------------------------------------------------------
 
@@ -222,9 +232,10 @@ CREATE TABLE IF NOT EXISTS `save` (
 --
 
 INSERT INTO `save` (`id_mb`, `id_jr`) VALUES
+(1, 4),
 (1, 6),
 (1, 8),
-(1, 9);
+(2, 9);
 
 -- --------------------------------------------------------
 

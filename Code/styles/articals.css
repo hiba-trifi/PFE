@@ -12,11 +12,12 @@ body header {
   align-items: center;
   background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
   padding: 50px 100px;
+  border-radius: 0 0 20px 20px;
 }
 @media screen and (min-width: 1000px) {
   body header {
-    width: calc(100% - 300px);
-    margin-left: 300px;
+    width: calc(100% - 330px);
+    margin-left: 315px;
   }
 }
 body header .decription {
@@ -34,14 +35,92 @@ body header .decription p {
   color: white;
 }
 body header img {
-  width: 400px;
+  width: 300px;
 }
 @media screen and (min-width: 1000px) {
   body main {
-    width: calc(100% - 720px);
+    width: calc(100% - 320px);
     margin-left: 320px;
   }
 }
-body main .articals {
-  padding: 20px;
+body main .filters-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+body main .filters-section button {
+  margin: 0 15px;
+  background-color: #4d5db5;
+  color: white;
+  border: none;
+  width: auto;
+  padding: 10px;
+  border-radius: 50px;
+}
+body main .filters-section button:focus-within, body main .filters-section button:hover {
+  background-color: white;
+  color: #4d5db5;
+}
+@media screen and (max-width: 1000px) {
+  body main .filters-section {
+    margin-top: 10%;
+  }
+  body main .filters-section button {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 30px;
+  }
+}
+@media screen and (max-width: 917px) {
+  body main .filters-section {
+    margin-top: 10%;
+  }
+  body main .filters-section button {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 30px;
+  }
+}
+body main .articals .card {
+  width: 400px;
+  height: 400px;
+  margin: 20px 0;
+}
+@media (min-width: 576px) {
+  body main .articals .card {
+    width: 45%;
+  }
+}
+@media (min-width: 768px) {
+  body main .articals .card {
+    width: 30%;
+  }
+}
+@media (min-width: 992px) {
+  body main .articals .card {
+    width: 22%;
+  }
+}
+body main .articals .card-img-top {
+  width: 100%;
+  height: auto;
+}
+body main .articals .card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+body main .articals .card-text {
+  margin-bottom: 10px;
+}
+body main .articals .btn-primary {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+body main .articals .btn-primary:hover {
+  background-color: #0056b3;
 }/*# sourceMappingURL=articals.css.map */

@@ -11,7 +11,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/journals.css">
+  <link rel="stylesheet" href="../styles/journals.css?v=<?php echo time(); ?>">
   <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -218,7 +218,45 @@ session_start();
 
           <div class="journal">
             <div class="journal-header d-flex justify-content-between">
-              <span class="journal-name"><?php echo $journalName; ?></span>
+              <div>
+
+                <!-- report -->
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-exclamation"></i></button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <form method="post">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Report Journal</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-column">
+                          <p>Please select a reason for reporting this journal:</p>
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="suicidal content" name="reportReason">
+                            <label class="form-check-label" for="reason-suicidal">
+                              Suicidal Content
+                            </label>
+                          </div>
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="inappropriate behavior" name="reportReason">
+                            <label class="form-check-label" for="reason-inappropriate">
+                              Inappropriate Behavior
+                            </label>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn report-button" name="report" data-journal-id="<?php echo $journalId; ?>">Confirm Report</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+
+                <span class="journal-name"><?php echo $journalName; ?></span>
+              </div>
               <div class="user-info">
                 <span class="username">Anonymous User</span>
                 <img src="../assets/profile.jpg" alt="">
@@ -284,8 +322,15 @@ session_start();
         }
       }
 
+
       $journalId = $_POST['journalId'];
       $memberId = $_SESSION['Id'];
+      $reportReason =  $_POST['reportReason'];
+      // if (isset($_POST['report'])) {
+      //   $Query = "INSERT INTO report (id_mb, id_jr) VALUES (:memberId, :journalId)";
+      //     $stmt = $pdo->prepare($Query);
+      //     $stmt->execute(['memberId' => $memberId, 'journalId' => $journalId]);
+      // }
 
       if (isset($_POST['like'])) {
         $query = "SELECT * FROM likes WHERE id_mb = :memberId AND id_jr = :journalId";

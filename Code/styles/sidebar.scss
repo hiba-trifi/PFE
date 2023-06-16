@@ -5,6 +5,8 @@ $light-color: #ff916c;
 $purple-color: #4d5db5;
 $white-color: #ffff;
 $grey-color: #bdbdbd;
+$text-color: #150c28;
+
 
 body {
   font-family: "Poppins", sans-serif;
@@ -32,12 +34,9 @@ body {
 
 .sidebar {
   width: 300px;
-  background: linear-gradient(
-    179.66deg,
-    #144162 -67.96%,
-    #4d5db5 32.71%,
-    #144162 159.48%
-  );
+
+
+  background-color: $white-color;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -84,7 +83,7 @@ body {
     .section {
       margin-bottom: 15%;
       h3 {
-        color: $grey-color;
+        color: $purple-color;
         text-decoration: underline;
         margin: 7% 0;
         padding: 0 10px;
@@ -98,7 +97,7 @@ body {
             background-color: $light-color;
           }
           a {
-            color: $white-color;
+            color: $text-color;
             text-decoration: none;
             display: block;
           }
@@ -118,7 +117,7 @@ body {
         .dropdown-toggle{
           background-color: transparent;
           border: none;
-          color: $white-color;
+          color: $text-color;
         }
 
       }

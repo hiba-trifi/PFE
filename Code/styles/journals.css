@@ -181,6 +181,14 @@ body main .journals .journal .journal-header img {
 body main .journals .journal .journal-header .username {
   font-weight: bold;
 }
+body main .journals .journal .journal-header button {
+  color: white;
+  border: none;
+  background-color: transparent;
+}
+body main .journals .journal .journal-header button i {
+  color: #150c28;
+}
 body main .journals .journal .journal-content {
   margin-bottom: 10px;
 }
@@ -218,6 +226,18 @@ body main .journals .journal .journal-footer .buttons .saves button i {
   body main .journals .journal-content {
     margin-bottom: 15px;
   }
+}
+body main .unpublished-overlay {
+  position: relative;
+  background-color: gray;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+body main .unpublished-message {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 body main .user-details {
   background-color: white;

@@ -220,6 +220,14 @@ body {
           .username {
             font-weight: bold;
           }
+          button {
+            color: $white-color;
+            border: none;
+            background-color: transparent;
+            i {
+              color: $text-color;
+            }
+          }
         }
 
         .journal-content {
@@ -272,6 +280,25 @@ body {
         }
       }
     }
+
+
+    // not availabel 
+    .unpublished-overlay {
+      position: relative;
+      background-color: gray;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    .unpublished-message {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+  
+    
 
     // user
     .user-details {

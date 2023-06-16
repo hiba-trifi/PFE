@@ -6,12 +6,13 @@ body header {
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
+  border-radius: 0 0 20px 20px;
   padding: 50px 100px;
 }
 @media screen and (min-width: 1000px) {
   body header {
-    width: calc(100% - 300px);
-    margin-left: 300px;
+    width: calc(100% - 330px);
+    margin-left: 315px;
   }
 }
 body header .decription {
@@ -29,7 +30,7 @@ body header .decription p {
   color: white;
 }
 body header img {
-  width: 400px;
+  width: 300px;
 }
 @media screen and (min-width: 1000px) {
   body .plan {

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../styles/navbar.css">
+<link rel="stylesheet" href="../styles/navbar.css?v=<?php echo time(); ?>">
 <nav class="navbar">
   
         <div class="../assets/profile.jpg">

@@ -72,7 +72,7 @@ if (isset($_POST["signUp"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/signup.css">
+    <link rel="stylesheet" href="../styles/signup.css?v=<?php echo time(); ?>">
     <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -106,22 +106,22 @@ if (isset($_POST["signUp"])) {
             <?php endif; ?>
             <div class="sighup">
                 <div class="d-flex justify-content-between">
-                    <div>
+                    <div class="col">
                         <label class="mt-2 " for="name"> First Name : </label>
                         <input type="text" name="name" id="name" class="form_input-1 mt-4 ">
                     </div>
-                    <div>
+                    <div class="col">
                         <label class="mt-2 " for="last_name"> Last Name : </label>
                         <input type="text" name="last_name" id="last_name" class="form_input-1 mt-4 ">
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-between ">
-                    <div>
+                    <div class="col">
                         <label class="mt-2 " for="date_birth"> Birth Date : </label>
                         <input type="date" name="date_birth" id="date_birth" class="form_input-1 mt-4 ">
                     </div>
-                    <div>
+                    <div class="col">
                         <label class=" mt-2 " name="gender" for="gender"> gender : </label>
                         <select class="form_input-1 mt-4" name="gender" aria-label="Default select example">
                             <option value="none">Choose your gender : </option>

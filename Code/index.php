@@ -11,7 +11,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/d12613abfd.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="./styles/index.css?v=<?php echo time(); ?>">
   <title>mywellnes</title>
 </head>
 
@@ -20,7 +20,7 @@ session_start();
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <div class="navbar-logo">
-        <img src="./assets/logo.svg" alt="Logo">
+        <img src="./assets/logoMb.svg" alt="Logo">
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

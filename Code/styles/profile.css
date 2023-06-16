@@ -12,11 +12,12 @@ header {
   align-items: center;
   background: linear-gradient(179.66deg, #144162 -67.96%, #4d5db5 32.71%, #144162 159.48%);
   padding: 50px 100px;
+  border-radius: 0 0 20px 20px;
 }
 @media screen and (min-width: 1000px) {
   header {
-    width: calc(100% - 300px);
-    margin-left: 300px;
+    width: calc(100% - 330px);
+    margin-left: 315px;
   }
 }
 header .decription {
@@ -29,7 +30,7 @@ header .decription h1 {
   margin-bottom: 10px;
 }
 header img {
-  width: 200px;
+  width: 300px;
 }
 
 @media screen and (min-width: 1000px) {

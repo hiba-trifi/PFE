@@ -1,4 +1,4 @@
-  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/sidebar.css?v=<?php echo time(); ?>">
   <button class="hamburger-btn" onclick="toggleSidebar()">
     <i class="fas fa-bars"></i>
   </button>
@@ -10,7 +10,7 @@
     </button>
     <div class="sections">
       <div class="profile">
-        <img src="../assets/logo.svg" alt="Profile Picture">
+        <img src="../assets/logoMb.svg" alt="Profile Picture">
       </div>
       <hr>
       <div class="section">

@@ -1,4 +1,4 @@
-  <link rel="stylesheet" href="./styles/admin-sidebar.css">
+  <link rel="stylesheet" href="./styles/admin-sidebar.css?v=<?php echo time(); ?>">
   <button class="hamburger-btn" onclick="toggleSidebar()">
     <i class="fas fa-bars"></i>
   </button>
@@ -10,7 +10,7 @@
     </button>
     <div class="sections">
       <div class="profile">
-        <img src="./assets/logo-admin.svg" alt="logo Picture">
+        <img src="./assets/logoMb.svg" alt="logo Picture">
       </div>
       <hr>
       <div class="section">
@@ -23,7 +23,7 @@
       <div class="section">
         <h3>Journals</h3>
         <div class="sidebar_links">
-          <div><a href="./journals.php">Manage journals</a></div>
+          <div><a href="./admin-journals.php">Manage journals</a></div>
         </div>
       </div>
 

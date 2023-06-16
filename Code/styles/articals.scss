@@ -25,9 +25,11 @@ body {
     #144162 159.48%
   );
     padding: 50px 100px;
+    border-radius: 0 0 20px 20px;
+
     @media screen and (min-width: 1000px) {
-      width: calc(100% - 300px);
-      margin-left: 300px;
+      width: calc(100% - 330px);
+      margin-left: 315px;
     }
 
     .decription {
@@ -48,21 +50,111 @@ body {
     }
 
     img {
-        width: 400px;
+        width: 300px;
     }
   }
 
 
   main {
     @media screen and (min-width: 1000px) {
-      width: calc(100% - 720px);
+      width: calc(100% - 320px);
       margin-left: 320px;
     }
-    
+       // filtters
+       .filters-section {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+  
+        button {
+          margin: 0 15px;
+          background-color: $purple-color;
+          color: $white-color;
+          border: none;
+          width: auto;
+          padding: 10px;
+          border-radius: 50px;
+          &:focus-within,
+          &:hover {
+            background-color: $white-color;
+            color: $purple-color;
+          }
+        }
+  
+        @media screen and (max-width: 1000px) {
+          margin-top: 10%;
+  
+          button {
+            width: auto;
+            padding: 5px 10px;
+            border-radius: 30px;
+          }
+        }
+        @media screen and (max-width: 917px) {
+          margin-top: 10%;
+  
+          button {
+            width: auto;
+            padding: 5px 10px;
+            border-radius: 30px;
+          }
+        }
+      }
     
     // Journal
     .articals {
-      padding: 20px;
+      .card {
+        width: 400px;
+        height: 400px;
+        margin: 20px 0;
+    }
+    
+    @media (min-width: 576px) {
+        .card {
+            width: 45%;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .card {
+            width: 30%;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .card {
+            width: 22%;
+        }
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+    
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .card-text {
+        margin-bottom: 10px;
+    }
+    
+    .btn-primary {
+        display: inline-block;
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    
       
     }
   }

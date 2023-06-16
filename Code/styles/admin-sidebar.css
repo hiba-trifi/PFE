@@ -28,7 +28,7 @@ body a {
 
 .sidebar {
   width: 300px;
-  background: linear-gradient(180deg, #103150 33.2%, #144162 92.38%);
+  background-color: white;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -72,7 +72,7 @@ body a {
   margin-bottom: 15%;
 }
 .sidebar .sections .section h3 {
-  color: #bdbdbd;
+  color: #4d5db5;
   text-decoration: underline;
   margin: 7% 0;
   padding: 0 10px;
@@ -87,7 +87,7 @@ body a {
   background-color: #ff916c;
 }
 .sidebar .sections .section .sidebar_links div a {
-  color: white;
+  color: #150c28;
   text-decoration: none;
   display: block;
 }
@@ -102,7 +102,7 @@ body a {
 .sidebar .sections .disconnect-link .btn-group .dropdown-toggle {
   background-color: transparent;
   border: none;
-  color: white;
+  color: #150c28;
 }
 @media screen and (max-width: 1000px) {
   .sidebar {

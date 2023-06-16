@@ -28,16 +28,16 @@ session_start();
   ?>
 
   <main class="">
- <!-- menu -->
- <div class="card fixed-right">
+    <!-- menu -->
+    <div class="card fixed-right">
       <div class="card-body">
         <div class="user-profile">
           <img src="../assets/profile.jpg" alt="">
           <h5 class="card-title">John Doe</h5>
-         
+
         </div>
         <hr>
-         <div class="card-progress ">
+        <div class="card-progress ">
           <h5> Your progress : </h5>
           <?php
           $memberId = $_SESSION['Id'];
@@ -134,7 +134,7 @@ session_start();
           FROM save
           INNER JOIN journal ON save.id_jr = journal.id_jr
           WHERE save.id_mb = :memberId";
-                } elseif ($filter === 'saved') {
+        } elseif ($filter === 'saved') {
           $query = "SELECT * FROM save JOIN journal ON save.id_jr = journal.id_jr WHERE save.id_mb = :memberId";
         } elseif ($filter === 'liked') {
           $query = "SELECT * FROM likes JOIN journal ON likes.id_jr = journal.id_jr WHERE likes.id_mb = :memberId";
@@ -153,6 +153,9 @@ session_start();
           $journalContent = $journal['jr_content'];
           $journalLikes = $journal['jr_likes'];
           $journalsaves = $journal['jr_saves'];
+          $journalstate = $journal['jr_state'];
+
+
 
 
       ?>
@@ -167,7 +170,10 @@ session_start();
             </div>
             <hr>
             <div class="journal-content">
-              <q><?php echo $journalContent; ?></q>
+
+              <q><?php
+                  echo $journalContent; ?></q>
+
             </div>
             <hr>
             <div class="journal-footer">
